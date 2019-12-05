@@ -129,7 +129,10 @@ section[role="banner"] .btn
   content: " ";
   left: 0;
   right: 50%;
-  bottom: -10px;
+  bottom: -8px;
+  height: 3px;
+  background: #ED5B18;
+  
 }
 #latest-products-title
 {
