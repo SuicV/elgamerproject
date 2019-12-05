@@ -98,7 +98,7 @@ section[role="banner"]
   background-size: cover;
   color: white;
 }
-section[role="banner"] .btn 
+section[role="banner"] .btn
 {
   background: #0E3E61;
   color: white;
@@ -136,6 +136,10 @@ section[role="banner"] .btn
   border-bottom: solid 3px #ED5B18;
   color: #0E3E61;
   font-weight: bold;
+}
+.product-image
+{
+    max-height: 250px;
 }
 .product-title
 {
