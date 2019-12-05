@@ -90,6 +90,69 @@ font-weight: bold;
   font-family: 'Press Start 2P', cursive;
   color : #ED5B18;
 }
+/* page content styling */
+section[role="banner"]
+{
+  min-height: 100vh;
+  background: url("/imgs/pc-4136383_1920.jpg") no-repeat center bottom #ED5B18;
+  background-size: cover;
+  color: white;
+}
+section[role="banner"] .btn 
+{
+  background: #0E3E61;
+  color: white;
+}
+.quality-element {
+  background: #00000054;
+}
+#top-banner-title {
+  filter: blur(#0E3E61,0.5);
+  color: white;
+  font-size: 30px;
+  font-family: 'Press Start 2P', cursive;
+}
+#top-banner-title > span {
+  font-size: 21px;
+  font-family: 'Roboto', sans-serif;
+}
+/*
+  styling latest products
+*/
+.double-border
+{
+  position: relative;
+}
+.double-border::after
+{
+  position: absolute;
+  content: " ";
+  left: 0;
+  right: 50%;
+  bottom: -10px;
+}
+#latest-products-title
+{
+  border-bottom: solid 3px #ED5B18;
+  color: #0E3E61;
+  font-weight: bold;
+}
+.product-title
+{
+  color: #0E3E61;
+}
+.product-price
+{
+  font-weight: bold;
+}
+.proudct-price-number
+{
+  color: #A13200;
+}
+.product-price-currency
+{
+  color: #0E3E61;
+}
 /*
 dark green : #10554d
 #A13200
