@@ -22,7 +22,7 @@
         </div>
         <div class="col-md-4">
           <h4 class="footer-section-title">Contacter nous</h4>
-          <form action="http://www.el-gamer.com" method="get">
+          <form action="{{ route('contact-us') }}" method="get">
             <div class="form-group">
               <input type="text" name="nom" id="contact-name" class="form-control" placeholder="Nom">
             </div>
