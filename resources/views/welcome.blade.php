@@ -1,4 +1,4 @@
-@extends("default", ["title"=>"Home::El-Gamer"])
+@extends("default", ["title"=>"Home::El-Gamer","css"=>"welcome"])
 @section('content')
     <section role="banner" class="jumbotron jumbotron-fluid d-flex">
         <div class="container align-self-center">
