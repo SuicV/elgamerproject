@@ -15,3 +15,4 @@ Route::get('/', "HomeController@index")->name("home");
 Route::get('/produits', "HomeController@index")->name("produits");
 Route::get('/promos', "HomeController@index")->name("promos");
 Route::get('/contacter-nous', "ContactController@index")->name("contact-us");
+Route::post('/contacter-nous', "ContactController@store")->name("contact-us.store");
