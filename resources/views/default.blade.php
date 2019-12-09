@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <title>{{ $title }}</title>
     <!-- Required meta tags -->
@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Font-Awesom CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Roboto:300,400,700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Roboto:300,400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/{{ $css }}.css">
   </head>
   <body>

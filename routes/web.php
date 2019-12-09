@@ -12,7 +12,10 @@
 */
 
 Route::get('/', "HomeController@index")->name("home");
-Route::get('/produits', "HomeController@index")->name("produits");
+// product routes
+Route::get('/produits', "ProductsController@index")->name("produits");
+// promo routes
 Route::get('/promos', "HomeController@index")->name("promos");
+// contact-us routes
 Route::get('/contacter-nous', "ContactController@index")->name("contact-us");
 Route::post('/contacter-nous', "ContactController@store")->name("contact-us.store");
