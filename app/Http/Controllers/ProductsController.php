@@ -32,7 +32,7 @@ class ProductsController extends Controller
             $categoryVerify = ["required","numeric"];
 
             if(intval($req->get("cat")) > 0){
-                $categoryVerify[] = "exist:categories,id";
+                $categoryVerify[] = "exists:categories,id";
             }
             $validator = Validator::make($req->only(["max-price","min-price","cat","page"]),[
                 "max-price"=>["required","numeric"],
@@ -42,10 +42,12 @@ class ProductsController extends Controller
             ]);
             if(!$validator->fails()){
                 // TODO : add category filter
-                $result = Product::where([
+                $wheres = [
                     ["price", "<=", $req->get("max-price")],
-                    ["price", ">=", $req->get("min-price")]
-                ])->select(["id", "title", "price", "description","image"]);
+                    ["price", ">=", $req->get("min-price")],
+                    ["category_id", "=",$req->get("cat")]
+                ];
+                $result = Product::where($wheres)->select(["id", "title", "price", "description","image"]);
                 return $result->paginate(9);
             }
             return \response("Ooops un error occure",400);
