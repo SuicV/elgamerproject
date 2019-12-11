@@ -90,3 +90,35 @@ body {
     font-family: 'Press Start 2P', cursive;
     color : #ED5B18;
   }
+/* styling product card */
+.product-image
+{
+  max-height: 250px;
+}
+.product-title
+{
+  color: #0E3E61;
+}
+.product-price
+{
+  font-weight: bold;
+}
+.proudct-price-number
+{
+  color: #A13200;
+}
+.product-price-currency
+{
+  color: #0E3E61;
+}
+/* styling filter section */
+#product-filter .form-group{
+    font-weight: bold;
+}
+#product-filter .clearfix , #price-range{
+    font-weight: lighter;
+}
+#price-range{
+    text-align: center;
+}
+

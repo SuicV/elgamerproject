@@ -14,6 +14,7 @@
 Route::get('/', "HomeController@index")->name("home");
 // product routes
 Route::get('/produits', "ProductsController@index")->name("produits");
+Route::post('/produits', "ProductsController@search")->name("produits.search");
 // promo routes
 Route::get('/promos', "HomeController@index")->name("promos");
 // contact-us routes
