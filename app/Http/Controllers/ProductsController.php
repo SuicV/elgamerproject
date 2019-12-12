@@ -45,8 +45,10 @@ class ProductsController extends Controller
                 $wheres = [
                     ["price", "<=", $req->get("max-price")],
                     ["price", ">=", $req->get("min-price")],
-                    ["category_id", "=",$req->get("cat")]
                 ];
+                if(intval($req->get("cat")) > 0){
+                    $wheres = ["category_id", "=",$req->get("cat")];
+                }
                 $result = Product::where($wheres)->select(["id", "title", "price", "description","image"]);
                 return $result->paginate(9);
             }
