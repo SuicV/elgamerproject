@@ -41,18 +41,32 @@ class ProductsController extends Controller
                 "cat"=>$categoryVerify
             ]);
             if(!$validator->fails()){
-                // TODO : add category filter
+
                 $wheres = [
                     ["price", "<=", $req->get("max-price")],
                     ["price", ">=", $req->get("min-price")],
                 ];
                 if(intval($req->get("cat")) > 0){
-                    $wheres = ["category_id", "=",$req->get("cat")];
+                    $wheres[] = ["category_id", "=",$req->get("cat")];
                 }
-                $result = Product::where($wheres)->select(["id", "title", "price", "description","image"]);
+                $result = Product::select(["id", "title", "price", "description","image"])
+                    ->where($wheres)
+                    ->orderBy("updated_at","DESC");
                 return $result->paginate(9);
             }
             return \response("Ooops un error occure",400);
         }
+    }
+
+    public function get($id){
+        $product = Product::where("id", "=", $id)->first();
+        if($product){
+            $migthLove = Product::where([
+                ["category_id","=", $product->category_id],
+                ["id","<>",$id]
+            ])->limit(4)->get();
+            return view("products.details",compact("product","migthLove"));
+        }
+        return redirect(route("produits"));
     }
 }
