@@ -1,0 +1,131 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.inline-list
+{
+    list-style: none;
+}
+.inline-list li
+{
+    display: inline;
+}
+/*decorate social media icons*/
+#h-social-links li i[class*="fa-facebook"]
+{
+    color :rgb(8, 23, 230);
+}
+#h-social-links li i[class*="fa-twitter"]
+{
+    color :rgb(36, 171, 233);
+}
+#h-social-links li i[class*="fa-instagram"]
+{
+    color :rgb(233, 187, 36);
+}
+.phone-number
+{
+    color : #A13200;
+    font-weight: bold;
+}
+.top-header-icons
+{
+    padding-right: .2rem;
+    font-size: 20px;
+    color : #0E3E61;
+}
+#h-social-links li a :hover
+{
+    transform: translateY(-5px);
+    transition: all ease .7s;
+}
+/* styling navbar*/
+.navbar-bg {
+    background-color : #0E3E61 ;
+}
+.navbar .navbar-brand
+{
+    font-family: 'Press Start 2P', cursive;
+    font-size: .9rem;
+}
+.navbar .active {
+    font-weight: bold;
+}
+.navbar-bg .navbar-text
+{
+    color: #A13200;
+}
+.navbar-toggler
+{
+    border : none;
+    cursor: pointer;
+}
+.navbar-drop-button
+{
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: white;
+    margin-bottom: 2px;
+    border-radius: 20%;
+}
+.navbar-drop-button:last-child
+{
+    margin-bottom: 0;
+}
+/* styling footer */
+#main-footer
+{
+    background-color: #A13200;
+    color: white;
+}
+#main-footer ul
+{
+    list-style: none;
+}
+#main-footer a {
+    color: white;
+}
+.footer-section-title
+{
+    font-family: 'Press Start 2P', cursive;
+    color : #ED5B18;
+}
+/* styling product information */
+#product-selected  h5 {
+    font-weight: bold;
+    color: #0E3E61;
+}
+#product-selected .attributes .attr {
+    font-weight: bold;
+    color: #0E3E61;
+}
+#product-selected .price {
+    font-size: 1.3rem;
+}
+#product-selected .label {
+    font-weight: bold;
+    color: #0E3E61;
+}
+#product-selected .number {
+    font-weight: 300;
+    color: #A13200;
+}
+/* styling products might like*/
+.product-migth-like {
+    color: black;
+}
+.product-migth-like:hover{
+    text-decoration: none;
+}
+.product-m-l-title h5 {
+    color: #0E3E61;
+    font-weight: bold;
+}
+.product-m-l-title p > span:first-child {
+    color: #0E3E61;
+    font-weight: bold;
+}
+.product-m-l-title p > span:last-child {
+    font-weight: 300;
+    color: #A13200;
+}
