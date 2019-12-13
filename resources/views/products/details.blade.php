@@ -16,8 +16,9 @@
                         <p><h5 class="d-inline">Prix : </h5><span class="number">{{$product->price}} DH</span></p>
                     </div>
                     <div class="add-to-bag">
-                        <form action="#" method="post">
+                        <form action="{{route('chart.store')}}" method="post">
                             {{ csrf_field() }}
+                            <input type="hidden" name="product_id" value="{{$product->id}}" />
                             <div class="form-group text-center">
                                 <label for="#quantity">Quantité :</label>
                                 <input class="ml-2 w-25 form-control d-inline" id="quantity" type="number" value="1" min="1" step="1" name="quantity">
@@ -86,6 +87,7 @@
             $("body").css("overflow","hidden");
             $("#close>i").on("click", function(){
                 $("body").css("overflow","scroll");
+
                 $("#img-zoomed").remove();
             });
         });
