@@ -5,7 +5,7 @@
             <h1 id="top-banner-title" class="display-3 text-center">Nos Produits</h1>
         </div>
     </section>
-    <section class="container">
+    <section class="container py-5">
         <aside class="row">
             <div class="col-sm-3">
                 <h5>Filtrer les resultats</h5>
@@ -55,7 +55,7 @@
             <div class="col-sm-9">
                 <div id="products" class="row">
                     @foreach($products as $product)
-                        <div class="col-12 col-md-4 my-3">
+                        <a href="{{route("produits.get",["id"=>$product->id])}}" class="px-1 col-12 col-md-4 my-3 product-container">
                             <div class="product-container border">
                                 <div class="img-product text-center">
                                     <img class="img-fluid product-image" src="{{ asset("imgs/".$product->image) }}" alt="">
@@ -63,10 +63,10 @@
                                 <div class="product-inf mt-2 mx-2">
                                     <h5 class="product-title text-center">{{ Str::title($product->title) }}</h5>
                                     <p class="product-descr">{{ Str::limit($product->description, 50, "...") }}</p>
-                                    <p class="product-price"><span class="proudct-price-number">{{ $product->price }}</span> <span class="product-price-currency">DH</span></p>
+                                    <p class="product-price">Prix : <span class="proudct-price-number">{{ $product->price }} DH</span></p>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     @endforeach
                 </div>
                 <div class="row">
@@ -82,7 +82,7 @@
     <script type="text/javascript">
         (function(){
             function getHtmlProduct(product){
-                return `<div class="col-12 col-md-4 my-3">
+                return `<a href="{{ route("produits") }}/${product.id}" class="col-12 col-md-4 my-3 product-container">
                             <div class="product-container border">
                                 <div class="img-product text-center">
                                     <img class="img-fluid product-image" src="{{ url("imgs") }}/${product.image}" />
@@ -90,10 +90,11 @@
                                 <div class="product-inf mt-2 mx-2">
                                     <h5 class="product-title text-center">${product.title}</h5>
                                     <p class="product-descr">${product.description.substr(0,50)} ...</p>
-                                    <p class="product-price"><span class="proudct-price-number">${ product.price }</span> <span class="product-price-currency">DH</span></p>
+                                    <p class="product-price">Prix : <span class="proudct-price-number">${product.price }DH</span></p>
+
                                 </div>
                             </div>
-                        </div>`;
+                        </a>`;
             }
             function paginationLinks(min, max, selected){
                 if(min === max){
@@ -147,6 +148,11 @@
                         url : url,
                     }
                 ).done(function(data){
+                    if(data.data.length === 0){
+                        $("#products").html(`<div class="alert alert-danger text-center w-100"><strong>Ooops ! </strong>Acune Produit Trouvé</div>`);
+                        $("#pagiantion").html("");
+                        return ;
+                    }
                     var html = '';
                     data.data.forEach(function(product){
                         html += getHtmlProduct(product);
