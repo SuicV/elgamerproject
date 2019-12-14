@@ -22,21 +22,29 @@ class ChartController extends Controller
     }
 
     public function store(Request $req){
-        // todo : add stock quantity and verify it
-        //if($req->ajax()){
+
+        if($req->ajax()){
             $informations = $req->only(["product_id","quantity"]);
             if(!Validator::make($informations,[
                 "product_id"=>["required","numeric","exists:products,id"],
                 "quantity"=>["required","numeric"]
             ])->fails()){
                 session()->put("chart.".$informations["product_id"],intval($informations["quantity"]));
-                return redirect(route("chart"));
+                return response(["action"=>"OK"], 200);
             }
-        //}
+        }
         return response("Bad Request",400);
     }
 
-    public function destroy($id){
-
+    public function destroy($id, Request $req){
+        if($req->ajax()){
+            if(session()->has("chart.$id")){
+                session()->remove("chart.$id");
+                return response([
+                    "action"=>"OK",
+                ],200);
+            }
+        }
+        return response(["action"=>"FAILD"],400);
     }
 }

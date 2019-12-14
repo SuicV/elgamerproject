@@ -28,15 +28,20 @@
                                 <td ><h4 style="min-width: 300px;">{{ $product->title }}</h4></td>
                                 <td><span>{{$product->price}} DH</span></td>
                                 <td><input type="number" class="form-control" min="1" step="1" value="{{$chartQuantities[$product->id]}}"></td>
-                                <td><p style="min-width: 80px;" class="m-0"><span>{{$product->price*$chartQuantities[$product->id]}}</span> DH</p></td>
-                                <td><button class="btn btn-outline-danger"><i class="fa fa-close"></i></button></td>
+                                <td><p style="min-width: 80px;" class="m-0"><span class="product-total-price">{{$product->price*$chartQuantities[$product->id]}}</span> DH</p></td>
+                                <td>
+                                    <form class="remove-product-form" action="{{ route('chart') }}" method="get">
+                                        @csrf
+                                        @method("DELETE")
+                                        <button type="submit" class="remove-product-btn btn btn-outline-danger" data-product="{{$product->id}}"><i class="fa fa-close"></i></button></td>
+                                    </form>
                             </tr>
                         @endforeach
                         </tbody>
                         <tfoot>
                         <tr>
                             <td colspan="4" CLASS="text-right">Montant a payer</td>
-                            <td colspan="2">{{$priceTotal}} DH</td>
+                            <td id="total-price" colspan="2">{{$priceTotal}} DH</td>
                         </tr>
                         </tfoot>
                     </table>
@@ -44,4 +49,36 @@
             @endif
         </div>
     </section>
+@endsection
+
+@section("scripts")
+    <script type="text/javascript">
+        $(".remove-product-form").on("submit",function(e){
+            e.preventDefault();
+            var el = $(this);
+            $.ajax({
+                url : '{{ route("chart") }}/'+$(this).find(".remove-product-btn").attr("data-product"),
+                method : "DELETE",
+                data : $(this).serialize()
+            }).done(function(data){
+                el.parent().parent().remove();
+                var sumPrices = 0 ;
+                $(".product-total-price").each(function(index, element){
+                    if(parseInt(element.text())!==NaN){
+                        sumPrices += parseInt(element.text());
+                    }
+                });
+                if(sumPrices === 0){
+                    $("#products-table table tbody").html(`<tr>
+                        <td colspan="6" style="text-align: center; font-weight: 300; color: #0E3E61;">
+                            <p class="pb-0">Le Panier est vide</p>
+                        </td>
+                    </tr>`);
+                }
+                $("#total-price").text(sumPrices+" DH");
+            }).fail(function(){
+                console.log("Erreur Occure");
+            });
+        });
+    </script>
 @endsection
