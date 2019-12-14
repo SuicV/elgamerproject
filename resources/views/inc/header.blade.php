@@ -37,7 +37,7 @@
 					</li>
 				</ul>
 				<div class="">
-                    <a class="nav-link" href="{{route('chart')}}"><span class="text-light">Panier <i class="fa fa-shopping-bag" aria-hidden="true"></i> <span id="pannier-sum">{{session()->get("chart.totalPrice",0)}} DH</span></span></a>
+                    <a class="nav-link" href="{{route('chart')}}"><span class="text-light"><i class="fa fa-shopping-basket" aria-hidden="true"></i> <span id="pannier-sum">{{session()->get("chart.totalPrice",0)}} DH</span></span></a>
 				</div>
 			</div>
 		</div>

@@ -49,6 +49,9 @@
                 </table>
             </div>
         </div>
+        <div>
+            <a href="{{route('purchase')}}" class="btn btn-success">Commander <i class="fa fa-shopping-cart"></i></a>
+        </div>
     </section>
 @endsection
 
