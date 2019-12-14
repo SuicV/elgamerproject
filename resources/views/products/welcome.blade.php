@@ -1,8 +1,9 @@
 @extends('../default',["title"=>"Produits::El-Gamer","css"=>"produits/welcome"])
 @section('content')
-    <section role="banner" class="jumbotron jumbotron-fluid d-flex">
-        <div class="container align-self-center">
-            <h1 id="top-banner-title" class="display-3 text-center">Nos Produits</h1>
+    <section role="banner"style="background :url('/imgs/nvidia-1201077_1280.jpg') no-repeat center center fixed;" class="jumbotron jumbotron-fluid d-flex">
+        <div style="background: rgba(239,255,253,0.4); border-radius: 15%;" class="container align-self-center">
+            <h1 id="top-banner-title" style="font-width: bold;" class="display-3 text-center">Nos Produits</h1>
+            <p style="font-weight: 400;" class="lead text-center">Vous aller Trouver tous nos produit et vous pouvez les filtrer</p>
         </div>
     </section>
     <section class="container py-5">
