@@ -14,7 +14,7 @@ class ChartController extends Controller
      */
     public function index(){
         $chartProducts = [];
-        $chartQuantities = session("chart");
+        $chartQuantities = array_diff(session("chart"),["totalPrice"]);
         if(!empty($chartQuantities)){
             $chartProducts = Product::select("id","title", "image","price")->whereIn("id",array_keys($chartQuantities))->get();
         }
@@ -29,8 +29,11 @@ class ChartController extends Controller
                 "product_id"=>["required","numeric","exists:products,id"],
                 "quantity"=>["required","numeric"]
             ])->fails()){
+                $product = Product::select("price")->where("id","=",$informations["product_id"])->first();
+                $totalPrice = $product->price * $informations["quantity"] + session()->get("chart.totalPrice",0);
+                session()->put("chart.totalPrice", $totalPrice);
                 session()->put("chart.".$informations["product_id"],intval($informations["quantity"]));
-                return response(["action"=>"OK"], 200);
+                return response(["action"=>"OK", "totalPrice"=>session()->get("chart.totalPrice",0)], 200);
             }
         }
         return response("Bad Request",400);
@@ -39,7 +42,12 @@ class ChartController extends Controller
     public function destroy($id, Request $req){
         if($req->ajax()){
             if(session()->has("chart.$id")){
+                $quantity = session("chart.$id",0);
+                $price = Product::select("price")->where("id","=",$id)->first()->price;
+
                 session()->remove("chart.$id");
+                $totalPrice = intval(session()->get("chart.totalPrice",0)) - (intval($price) *$quantity);
+                session()->pull("chart.totalPrice", $totalPrice);
                 return response([
                     "action"=>"OK",
                 ],200);
