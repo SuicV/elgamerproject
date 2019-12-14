@@ -16,7 +16,7 @@
                         <p><h5 class="d-inline">Prix : </h5><span class="number">{{$product->price}} DH</span></p>
                     </div>
                     <div class="add-to-bag">
-                        <form action="{{route('chart.store')}}" method="post">
+                        <form id="add-chart-form" action="{{route('chart.store')}}" method="post">
                             {{ csrf_field() }}
                             <input type="hidden" name="product_id" value="{{$product->id}}" />
                             <div class="form-group text-center">
@@ -70,6 +70,7 @@
         </div>
         @endif
     </section>
+    @include("products.inc.modals")
 @endsection
 @section("scripts")
     <script type="text/javascript">
@@ -89,6 +90,19 @@
                 $("body").css("overflow","scroll");
 
                 $("#img-zoomed").remove();
+            });
+        });
+        $("#add-chart-form").on("submit",function(e){
+            e.preventDefault();
+            $.ajax({
+                url : e.target.action,
+                method : "POST",
+                data : $(this).serialize()
+            }).done(function(data){
+                $("#success-chart-add").modal("show");
+                $("#pannier-sum").text(data.totalPrice+" DH");
+            }).fail(function(response){
+                alert("Erreur");
             });
         });
     </script>

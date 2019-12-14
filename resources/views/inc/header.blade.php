@@ -35,12 +35,9 @@
 					<li class="nav-item">
 						<a class="nav-link" href="{{ route('produits') }}">Produits</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{ route('promos') }}">Promos</a>
-					</li>
 				</ul>
 				<div class="">
-					<span class="text-light">Pannier <i class="fa fa-shopping-bag" aria-hidden="true"></i> <span id="pannier-sum">0 DH</span></span>
+                    <a class="nav-link" href="{{route('chart')}}"><span class="text-light">Panier <i class="fa fa-shopping-bag" aria-hidden="true"></i> <span id="pannier-sum">{{session()->get("chart.totalPrice",0)}} DH</span></span></a>
 				</div>
 			</div>
 		</div>
