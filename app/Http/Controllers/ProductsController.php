@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Validator;
 
 class ProductsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware("isAjax")->only("search");
+    }
+
     /**
      * Get element products page with all products in pagination
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -28,33 +33,30 @@ class ProductsController extends Controller
      * @return \Illuminate\Contracts\Routing\ResponseFactory|Response
      */
     public function search(Request $req){
-        if($req->ajax()) {
-            $categoryVerify = ["required","numeric"];
+        $categoryVerify = ["required","numeric"];
 
+        if(intval($req->get("cat")) > 0){
+            $categoryVerify[] = "exists:categories,id";
+        }
+        $validator = Validator::make($req->only(["max-price","min-price","cat","page"]),[
+            "max-price"=>["required","numeric"],
+            "min-price"=>["required","numeric"],
+            "page"=>["required","numeric"],
+            "cat"=>$categoryVerify
+        ]);
+        if(!$validator->fails()){
+
+            $wheres = [
+                ["price", "<=", $req->get("max-price")],
+                ["price", ">=", $req->get("min-price")],
+            ];
             if(intval($req->get("cat")) > 0){
-                $categoryVerify[] = "exists:categories,id";
+                $wheres[] = ["category_id", "=",$req->get("cat")];
             }
-            $validator = Validator::make($req->only(["max-price","min-price","cat","page"]),[
-                "max-price"=>["required","numeric"],
-                "min-price"=>["required","numeric"],
-                "page"=>["required","numeric"],
-                "cat"=>$categoryVerify
-            ]);
-            if(!$validator->fails()){
-
-                $wheres = [
-                    ["price", "<=", $req->get("max-price")],
-                    ["price", ">=", $req->get("min-price")],
-                ];
-                if(intval($req->get("cat")) > 0){
-                    $wheres[] = ["category_id", "=",$req->get("cat")];
-                }
-                $result = Product::select(["id", "title", "price", "description","image"])
-                    ->where($wheres)
-                    ->orderBy("updated_at","DESC");
-                return $result->paginate(9);
-            }
-            return \response("Ooops un error occure",400);
+            $result = Product::select(["id", "title", "price", "description","image"])
+                ->where($wheres)
+                ->orderBy("updated_at","DESC");
+            return $result->paginate(9);
         }
     }
 
