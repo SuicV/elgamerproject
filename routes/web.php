@@ -23,6 +23,13 @@ Route::delete('/panier/{id}', "ChartController@destroy")->name("chart.destroy")-
 // purchase routes
 Route::get("/commander","PurchaseController@index")->name("purchase");
 Route::post("/commander","PurchaseController@store")->name("purchase");
+Route::get("pdf", function(){
+    $quantities = array_diff(session("chart",[]),["totalPrice"]);
+    $products = \App\Product::select("id","title", "image","price")->whereIn("id",array_keys($quantities))->get();
+    $pdf = \PDF::loadView("pdf.test", compact("quantities", "products"));
+    return $pdf->download("fichier.pdf");
+    return view("pdf.test", compact("quantities", "products"));
+});
 // contact-us routes
 Route::get('/contacter-nous', "ContactController@index")->name("contact-us");
 Route::post('/contacter-nous', "ContactController@store")->name("contact-us.store");
