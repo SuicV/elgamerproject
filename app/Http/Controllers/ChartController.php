@@ -14,7 +14,7 @@ class ChartController extends Controller
      */
     public function index(){
         $chartProducts = [];
-        $chartQuantities = array_diff(session("chart"),["totalPrice"]);
+        $chartQuantities = array_diff_assoc(session()->get("chart"), ["totalPrice"=>session()->get("chart.totalPrice",0)]);
         if(!empty($chartQuantities)){
             $chartProducts = Product::select("id","title", "image","price")->whereIn("id",array_keys($chartQuantities))->get();
         }
