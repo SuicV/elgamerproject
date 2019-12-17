@@ -21,8 +21,12 @@
     <section>
         <aside>
             <ul>
-                <li><span>Code De Commande :</span>{{ Str::random(30) }}</li>
-                <li><span>Nom de Client :</span> Nom de test</li>
+                <li><span>Code De Commande :</span>{{$commandeCode}}</li>
+                <li><span>Nom de Client :</span> {{$client->fullName}}</li>
+                <li><span>Email :</span> {{$client->email}}</li>
+                <li><span>telephone :</span> {{$client->phone}}</li>
+                <li><span>adresse :</span> {{$client->address}}</li>
+                <li><span>date :</span> {{$client->created_at}}</li>
             </ul>
         </aside>
     </section>
@@ -47,15 +51,15 @@
                             <td><img class="img-fluid" style="height: 150px;" src="http://el-gamer.com/imgs/{{$product->image}}" /></td>
                             <td style="vertical-align: middle;">{{$product->title}}</td>
                             <td style="vertical-align: middle;">{{$product->price}}</td>
-                            <td style="vertical-align: middle;">{{session("chart.".$product->id)}}</td>
-                            <td style="vertical-align: middle;">{{$product->price * session("chart.".$product->id)}}</td>
+                            <td style="vertical-align: middle;">{{$quantities[$product->id]}}</td>
+                            <td style="vertical-align: middle;">{{$product->price * $quantities[$product->id]}}</td>
                         </tr>
                         @endforeach
                 </tbody>
                 <tfoot>
                 <tr>
                     <td style="text-align: right;" colspan="4">Montant Total a payé</td>
-                    <td>{{session()->get("chart.totalPrice",0)}}</td>
+                    <td>{{$quantities["totalPrice"]}}</td>
                 </tr>
                 </tfoot>
             </table>

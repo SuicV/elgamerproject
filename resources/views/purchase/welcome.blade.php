@@ -35,7 +35,7 @@
             </div>
             <div class="form-group">
                 <label for="telephone">Telephone</label>
-                <input value="{{ old('telephone') }}" type="text" class="form-control" id="telephone" name="telephone" placeholder="0612345678">
+                <input value="{{ old('telephone') }}" type="text" class="form-control" id="telephone" name="phone" placeholder="0612345678">
             </div>
             <div class="form-group">
                 <label for="address">Address</label>
