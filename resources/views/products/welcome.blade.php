@@ -83,6 +83,9 @@
     <script type="text/javascript">
         (function(){
             /* Functions */
+            /**
+             *
+             * */
             function getHtmlProduct(products){
                 var html = '';
                 products.forEach(function(product){
