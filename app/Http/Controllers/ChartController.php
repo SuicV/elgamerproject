@@ -14,7 +14,7 @@ class ChartController extends Controller
      */
     public function index(){
         $chartProducts = [];
-        $chartQuantities = array_diff_assoc(session()->get("chart"), ["totalPrice"=>session()->get("chart.totalPrice",0)]);
+        $chartQuantities = array_diff_assoc(session()->get("chart",[]), ["totalPrice"=>session()->get("chart.totalPrice",0)]);
         if(!empty($chartQuantities)){
             $chartProducts = Product::select("id","title", "image","price")->whereIn("id",array_keys($chartQuantities))->get();
         }
@@ -30,7 +30,8 @@ class ChartController extends Controller
                 "quantity"=>["required","numeric"]
             ])->fails()){
                 $product = Product::select("price")->where("id","=",$informations["product_id"])->first();
-                $totalPrice = $product->price * $informations["quantity"] + session()->get("chart.totalPrice",0);
+                $totalPrice = session()->get("chart.totalPrice",0) - $product->price * session()->get("chart.".$informations["product_id"],0);
+                $totalPrice += $product->price * $informations["quantity"];
                 session()->put("chart.totalPrice", $totalPrice);
                 session()->put("chart.".$informations["product_id"],intval($informations["quantity"]));
                 return response(["action"=>"OK", "totalPrice"=>session()->get("chart.totalPrice",0)], 200);
