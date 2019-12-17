@@ -82,8 +82,11 @@
 @section("scripts")
     <script type="text/javascript">
         (function(){
-            function getHtmlProduct(product){
-                return `<a href="{{ route("produits") }}/${product.id}" class="col-12 col-md-4 my-3 product-container">
+            /* Functions */
+            function getHtmlProduct(products){
+                var html = '';
+                products.forEach(function(product){
+                    html += `<a href="{{ route("produits") }}/${product.id}" class="col-12 col-md-4 my-3 product-container">
                             <div class="product-container border">
                                 <div class="img-product text-center">
                                     <img class="img-fluid product-image" src="{{ url("imgs") }}/${product.image}" />
@@ -96,6 +99,8 @@
                                 </div>
                             </div>
                         </a>`;
+                });
+                return html ;
             }
             function paginationLinks(min, max, selected){
                 if(min === max){
@@ -143,7 +148,7 @@
 
             function getProducts(url, page){
                 $.ajax({
-                        method : 'POST',
+                        method : "POST",
                         data : $("#product-filter").serialize()+"&page="+page,
                         dataType: "json",
                         url : url,
@@ -154,13 +159,8 @@
                         $("#pagiantion").html("");
                         return ;
                     }
-                    var html = '';
-                    data.data.forEach(function(product){
-                        html += getHtmlProduct(product);
-                        $("#products").html(html);
-                    });
-                    pagHtml = paginationLinks(1, data.last_page, data.current_page);
-                    $("#pagiantion").html(pagHtml);
+                    $("#products").html(getHtmlProduct(data.data));
+                    $("#pagiantion").html(paginationLinks(1, data.last_page, data.current_page));
                     $("#pagiantion a").on("click", function(e){
                         e.preventDefault();
                         getProducts('{{url("produits")}}', parseInt(e.target.href.split("?page=")[1]))
@@ -171,8 +171,30 @@
                 });
             }
 
+            /* Events */
+            // add default event to pagination links
+            function addAjaxDefault(){
+
+                $("#pagiantion a").on("click", function(e){
+                    e.preventDefault();
+                    console.log(e.target.href);
+                    $.ajax({
+                        method : "GET",
+                        url : '{{url("produits")}}?page='+parseInt(e.target.href.split("?page=")[1]),
+
+                    }).done(function(data){
+                        $("#products").html(getHtmlProduct(data.data));
+                        $("#pagiantion").html(paginationLinks(1, data.last_page, data.current_page));
+                        addAjaxDefault();
+                    }).fail(function(response){
+                        console.log("getting products is fails");
+                    })
+                });
+            }
+            addAjaxDefault();
             $("#product-filter").on("submit",function(e){
                 e.preventDefault();
+                console.log("qlskdjflmqksjdf");
                 getProducts('{{url("produits")}}', 1);
             });
             $("input[type='range']").on("change",function(e){

@@ -19,10 +19,13 @@ class ProductsController extends Controller
      * Get element products page with all products in pagination
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index(){
+    public function index(Request $req){
         $categories = Category::whereNull("parent_cat")->get();
         $products = Product::orderBy("created_at","DESC")->paginate(9);
         $prices = ["max"=>Product::max("price"),"min"=>Product::min("price")];
+        if($req->ajax()){
+            return $products;
+        }
         return view("products.welcome",compact("categories","products","prices"));
     }
 
