@@ -10,8 +10,10 @@ const mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
-
+// js mixings
 mix.js('resources/js/products/welcome.js', 'public/js/products')
     .js("resources/js/products/details.js","public/js/products")
     .js("resources/js/chart/welcome.js", "public/js/chart");
-mix.sass('resources/sass/welcome.scss', 'public/css');
+// sass mixings
+mix.sass('resources/sass/welcome.scss', 'public/css')
+    .sass('resources/sass/contact.scss', 'public/css');
