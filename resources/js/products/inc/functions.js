@@ -127,8 +127,9 @@ export function addAjaxDefault(){
         }).done(function(data){
             $("#products").html(getHtmlProduct(data.data));
             $("#pagiantion").html(paginationLinks(1, data.last_page, data.current_page));
-            funcs.addAjaxDefault();
+            addAjaxDefault();
         }).fail(function(response){
+            console.log(response);
             console.error("getting products is fails");
         })
     });

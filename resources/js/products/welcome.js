@@ -1,7 +1,6 @@
 (function(){
     // requiring function file
     let funcs=require("./inc/functions");
-
     /* Events */
     // add default event to pagination links
     funcs.addAjaxDefault();
