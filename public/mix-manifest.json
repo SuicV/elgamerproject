@@ -3,5 +3,7 @@
     "/js/products/details.js": "/js/products/details.js",
     "/js/products/welcome.js": "/js/products/welcome.js",
     "/css/welcome.css": "/css/welcome.css",
-    "/css/contact.css": "/css/contact.css"
+    "/css/contact.css": "/css/contact.css",
+    "/css/produits/details.css": "/css/produits/details.css",
+    "/css/produits/welcome.css": "/css/produits/welcome.css"
 }

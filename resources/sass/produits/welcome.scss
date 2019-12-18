@@ -1,0 +1,88 @@
+@import '../inc/header';
+@import '../inc/footer';
+
+/* styling product card */
+#products .product-container{
+    color: black;
+    position: relative;
+}
+#products .product-container:hover{
+    text-decoration: none;
+}
+#products .product-container:hover  .product-container:after{
+    content: "Voir Plus";
+    padding: .9rem .5rem;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    position: absolute;
+    display: block;
+    width: 95%;
+    background: #0E3E61;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 500;
+    animation-name: fade-in;
+    animation-duration: .9s;
+}
+#products .product-container:hover  .product-container:before{
+    position: absolute;
+    background: rgba(161, 50, 0, 0.42);
+    display: block;
+    content: "";
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    animation: hidder-animation .9s;
+}
+@keyframes hidder-animation {
+    from{
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes fade-in {
+    from {
+        transform: translate(-25%,-50%);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%,-50%);
+    }
+}
+.product-image
+{
+  max-height: 250px;
+}
+.product-title
+{
+  color: #0E3E61;
+}
+.product-price
+{
+    text-align: center ;
+  font-weight: bold;
+    color: #0E3E61;
+}
+.proudct-price-number
+{
+  color: #A13200;
+    font-weight: 300;
+}
+
+/* styling filter section */
+#product-filter .form-group{
+    font-weight: bold;
+}
+#product-filter .clearfix , #price-range{
+    font-weight: lighter;
+}
+#price-range{
+    text-align: center;
+}
