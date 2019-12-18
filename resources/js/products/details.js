@@ -11,9 +11,9 @@ $(document).ready(function(e){
         img.removeClass("img-fluid");
         element.append(img);
         $("body").append(element);
-        $("body").css("overflow","hidden");
+        $("body").css("overflow-y","hidden");
         $("#close>i").on("click", function(){
-            $("body").css("overflow","scroll");
+            $("body").css("overflow-y","scroll");
 
             $("#img-zoomed").remove();
         });
