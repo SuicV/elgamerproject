@@ -1,5 +1,6 @@
 {
     "/js/chart/welcome.js": "/js/chart/welcome.js",
     "/js/products/details.js": "/js/products/details.js",
-    "/js/products/welcome.js": "/js/products/welcome.js"
+    "/js/products/welcome.js": "/js/products/welcome.js",
+    "/css/welcome.css": "/css/welcome.css"
 }
