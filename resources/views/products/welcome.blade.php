@@ -35,7 +35,7 @@
                                 <span>{{ $prices["max"] }} DH</span>
                             </div>
                         </div>
-                        <input class="w-100" type="range" min="{{ $prices["min"] }}" max="{{$prices["max"]}}" name="max-price" id="max-price">
+                        <input class="w-100" type="range" value="{{ $prices['max'] }}"min="{{ $prices["min"] }}" max="{{$prices["max"]}}" name="max-price" id="max-price">
                     </div>
                     <div class="form-group mb-0">
                         <label for="min-price">prix minimume</label>
@@ -47,7 +47,7 @@
                                 <span>{{ $prices["max"] }} DH</span>
                             </div>
                         </div>
-                        <input class="w-100" type="range" min="{{ $prices["min"] }}" max="{{$prices["max"]}}" name="min-price" id="min-price">
+                        <input class="w-100" value="{{ $prices['min'] }}" type="range" min="{{ $prices["min"] }}" max="{{$prices["max"]}}" name="min-price" id="min-price">
                     </div>
                     <div id="price-range"></div>
                     <button type="submit" class="btn btn-success">Filtrer</button>
