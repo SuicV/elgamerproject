@@ -8,7 +8,7 @@
     </section>
     <section class="container py-5">
         <aside class="row">
-            <div class="col-sm-3">
+            <div class="col-12 col-sm-5 col-md-3">
                 <h5>Filtrer les resultats</h5>
                 <form id="product-filter" action="{{ route('produits.search') }}" method="post">
                     {{ csrf_field() }}
@@ -53,11 +53,11 @@
                     <button type="submit" class="btn btn-success">Filtrer</button>
                 </form>
             </div>
-            <div class="col-sm-9">
+            <div class="col-12 col-sm-7 col-md-9">
                 <div id="products" class="row">
                     @foreach($products as $product)
                         <a href="{{route("produits.get",["id"=>$product->id])}}" class="px-1 col-12 col-md-4 my-3 product-container">
-                            <div class="product-container border">
+                            <div class="product-container border h-100">
                                 <div class="img-product text-center">
                                     <img class="img-fluid product-image" src="{{ asset("imgs/".$product->image) }}" alt="">
                                 </div>
