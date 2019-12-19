@@ -18,4 +18,6 @@ mix.js('resources/js/products/welcome.js', 'public/js/products')
 mix.sass('resources/sass/welcome.scss', 'public/css')
     .sass('resources/sass/contact.scss', 'public/css')
     .sass('resources/sass/produits/details.scss', 'public/css/produits')
-    .sass('resources/sass/produits/welcome.scss', 'public/css/produits');
+    .sass('resources/sass/produits/welcome.scss', 'public/css/produits')
+    .sass('resources/sass/purchase/welcome.scss', 'public/css/purchase')
+    .sass('resources/sass/chart/welcome.scss', 'public/css/chart');

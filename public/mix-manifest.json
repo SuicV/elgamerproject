@@ -5,5 +5,7 @@
     "/css/welcome.css": "/css/welcome.css",
     "/css/contact.css": "/css/contact.css",
     "/css/produits/details.css": "/css/produits/details.css",
-    "/css/produits/welcome.css": "/css/produits/welcome.css"
+    "/css/produits/welcome.css": "/css/produits/welcome.css",
+    "/css/purchase/welcome.css": "/css/purchase/welcome.css",
+    "/css/chart/welcome.css": "/css/chart/welcome.css"
 }
