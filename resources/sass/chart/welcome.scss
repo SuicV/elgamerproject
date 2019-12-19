@@ -1,3 +1,4 @@
+@import '../inc/variables';
 @import '../inc/header';
 @import '../inc/footer';
 
@@ -5,14 +6,14 @@
 #products-table thead tr td {
     text-align: center;
     font-weight: bold;
-    color: #0E3E61;
+    color: $dark_bleu;
 }
 #products-table tfoot td:first-child{
-    color: #0E3E61;
+    color: $dark_bleu;
     font-weight: bold;font-size: 1.3rem;
 }
 #products-table tfoot td:last-child{
-    color: #A13200;
+    color: $dark_brouwn;
     font-weight: 300;
     font-size: 1.3rem;
 }
@@ -21,6 +22,6 @@
 }
 #products-table .product-item td:nth-child(3),
 #products-table .product-item td:nth-child(5){
-    color: #A13200;
+    color: $dark_brouwn;
     font-weight: 300;
 }
