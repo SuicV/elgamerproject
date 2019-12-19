@@ -9,7 +9,7 @@ export function getHtmlProduct(products){
     let html = '';
     products.forEach(function(product){
         html += `<a href="http://el-gamer.com/produits/${product.id}" class="col-12 col-md-4 my-3 product-container">
-                            <div class="product-container border">
+                            <div class="product-container border h-100">
                                 <div class="img-product text-center">
                                     <img class="img-fluid product-image" src="http://el-gamer.com/imgs/${product.image}" />
                                 </div>

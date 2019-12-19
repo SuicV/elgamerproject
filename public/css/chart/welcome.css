@@ -1,1 +1,131 @@
-body{font-family:Roboto,sans-serif}.inline-list{list-style:none}.inline-list li{display:inline}#h-social-links li i[class*=fa-facebook]{color:#0817e6}#h-social-links li i[class*=fa-twitter]{color:#24abe9}#h-social-links li i[class*=fa-instagram]{color:#e9bb24}.phone-number{color:#a13200;font-weight:700}.top-header-icons{padding-right:.2rem;font-size:20px;color:#0e3e61}#h-social-links li a :hover{-webkit-transform:translateY(-5px);transform:translateY(-5px);-webkit-transition:all .7s ease;transition:all .7s ease}.navbar-bg{background-color:#0e3e61}.navbar .navbar-brand{font-family:Press Start\ 2P,cursive;font-size:.9rem}.navbar .active{font-weight:700}.navbar-bg .navbar-text{color:#a13200}.navbar-toggler{border:none;cursor:pointer}.navbar-drop-button{display:block;width:20px;height:3px;background:#fff;margin-bottom:2px;border-radius:20%}.navbar-drop-button:last-child{margin-bottom:0}#main-footer{background-color:#a13200;color:#fff}#main-footer ul{list-style:none}#main-footer a{color:#fff}.footer-section-title{font-family:Press Start\ 2P,cursive;color:#ed5b18}#products-table thead tr td{text-align:center;font-weight:700;color:#0e3e61}#products-table tfoot td:first-child{color:#0e3e61;font-weight:700;font-size:1.3rem}#products-table tfoot td:last-child{color:#a13200;font-weight:300;font-size:1.3rem}#products-table td{vertical-align:middle}#products-table .product-item td:nth-child(3),#products-table .product-item td:nth-child(5){color:#a13200;font-weight:300}
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.inline-list {
+  list-style: none;
+}
+
+.inline-list li {
+  display: inline;
+}
+
+/*decorate social media icons*/
+
+#h-social-links li i[class*=fa-facebook] {
+  color: #0817e6;
+}
+
+#h-social-links li i[class*=fa-twitter] {
+  color: #24abe9;
+}
+
+#h-social-links li i[class*=fa-instagram] {
+  color: #e9bb24;
+}
+
+.phone-number {
+  color: #A13200;
+  font-weight: bold;
+}
+
+.top-header-icons {
+  padding-right: 0.2rem;
+  font-size: 20px;
+  color: #0E3E61;
+}
+
+#h-social-links li a :hover {
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+  -webkit-transition: all ease 0.7s;
+  transition: all ease 0.7s;
+}
+
+/* styling navbar*/
+
+.navbar-bg {
+  background-color: #0E3E61;
+}
+
+.navbar .navbar-brand {
+  font-family: "Press Start 2P", cursive;
+  font-size: 0.9rem;
+}
+
+.navbar .active {
+  font-weight: bold;
+}
+
+.navbar-bg .navbar-text {
+  color: #A13200;
+}
+
+.navbar-toggler {
+  border: none;
+  cursor: pointer;
+}
+
+.navbar-drop-button {
+  display: block;
+  width: 20px;
+  height: 3px;
+  background: white;
+  margin-bottom: 2px;
+  border-radius: 20%;
+}
+
+.navbar-drop-button:last-child {
+  margin-bottom: 0;
+}
+
+/* styling footer */
+
+#main-footer {
+  background-color: #A13200;
+  color: white;
+}
+
+#main-footer ul {
+  list-style: none;
+}
+
+#main-footer a {
+  color: white;
+}
+
+.footer-section-title {
+  font-family: "Press Start 2P", cursive;
+  color: #ED5B18;
+}
+
+/* styling products table */
+
+#products-table thead tr td {
+  text-align: center;
+  font-weight: bold;
+  color: #0E3E61;
+}
+
+#products-table tfoot td:first-child {
+  color: #0E3E61;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+#products-table tfoot td:last-child {
+  color: #A13200;
+  font-weight: 300;
+  font-size: 1.3rem;
+}
+
+#products-table td {
+  vertical-align: middle;
+}
+
+#products-table .product-item td:nth-child(3),
+#products-table .product-item td:nth-child(5) {
+  color: #A13200;
+  font-weight: 300;
+}
+
