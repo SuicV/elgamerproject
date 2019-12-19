@@ -1,7 +1,10 @@
 @import'../inc/variables';
 @import '../inc/header';
 @import '../inc/footer';
-
+section[role="banner"] {
+    background : url('/imgs/nvidia-1201077_1280.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
 /* styling product card */
 #products .product-container{
     color: black;

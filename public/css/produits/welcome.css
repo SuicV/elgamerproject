@@ -99,6 +99,11 @@ body {
   color: #ED5B18;
 }
 
+section[role=banner] {
+  background: url("/imgs/nvidia-1201077_1280.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
 /* styling product card */
 
 #products .product-container {
