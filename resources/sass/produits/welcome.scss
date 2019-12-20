@@ -68,11 +68,19 @@ section[role="banner"] {
 {
   color: $dark_bleu;
 }
+.product-descr
+{
+    margin-bottom: 50px;
+}
 .product-price
 {
     text-align: center ;
     font-weight: bold;
     color: $dark_bleu;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 .proudct-price-number
 {
@@ -89,4 +97,23 @@ section[role="banner"] {
 }
 #price-range{
     text-align: center;
+}
+/* styling range input */
+.range {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: $dark_bleu;
+    height: 10px;
+    border-radius: 10%;
+    &::-webkit-slider-thumb , &::-moz-range-thumb {
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        height: 15px;
+        width: 15px;
+        border-radius: 100%;
+        background-color: white;
+        border: 2px solid $dark_bleu;
+    }
 }

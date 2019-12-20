@@ -36,10 +36,10 @@ body {
 }
 
 #h-social-links li a :hover {
-  -webkit-transform: translateY(-5px);
-          transform: translateY(-5px);
-  -webkit-transition: all ease 0.7s;
-  transition: all ease 0.7s;
+  -webkit-transform: translateY(-6px);
+          transform: translateY(-6px);
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
 }
 
 /* styling navbar*/
@@ -206,10 +206,18 @@ section[role=banner] {
   color: #0E3E61;
 }
 
+.product-descr {
+  margin-bottom: 50px;
+}
+
 .product-price {
   text-align: center;
   font-weight: bold;
   color: #0E3E61;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .proudct-price-number {
@@ -230,5 +238,28 @@ section[role=banner] {
 
 #price-range {
   text-align: center;
+}
+
+/* styling range input */
+
+.range {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: #0E3E61;
+  height: 10px;
+  border-radius: 10%;
+}
+
+.range::-webkit-slider-thumb,
+.range::-moz-range-thumb {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  height: 15px;
+  width: 15px;
+  border-radius: 100%;
+  background-color: white;
+  border: 2px solid #0E3E61;
 }
 

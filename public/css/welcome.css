@@ -36,10 +36,10 @@ body {
 }
 
 #h-social-links li a :hover {
-  -webkit-transform: translateY(-5px);
-          transform: translateY(-5px);
-  -webkit-transition: all ease 0.7s;
-  transition: all ease 0.7s;
+  -webkit-transform: translateY(-6px);
+          transform: translateY(-6px);
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
 }
 
 /* styling navbar*/

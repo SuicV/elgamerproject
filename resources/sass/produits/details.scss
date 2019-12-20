@@ -5,22 +5,25 @@
 /* styling product information */
 #product-selected  h5 {
     font-weight: bold;
-    color: #0E3E61;
+    color: $dark_bleu;
+}
+#product-selected .image >img {
+    cursor: pointer;
 }
 #product-selected .attributes .attr {
     font-weight: bold;
-    color: #0E3E61;
+    color: $dark_bleu;
 }
 #product-selected .price {
     font-size: 1.3rem;
 }
 #product-selected .label {
     font-weight: bold;
-    color: #0E3E61;
+    color: $dark_bleu;
 }
 #product-selected .number {
     font-weight: 300;
-    color: #A13200;
+    color: $dark_brouwn;
 }
 /* styling products might like*/
 .product-migth-like {
@@ -30,14 +33,14 @@
     text-decoration: none;
 }
 .product-m-l-title h5 {
-    color: #0E3E61;
+    color: $dark_bleu;
     font-weight: bold;
 }
 .product-m-l-title p > span:first-child {
-    color: #0E3E61;
+    color: $dark_bleu;
     font-weight: bold;
 }
 .product-m-l-title p > span:last-child {
     font-weight: 300;
-    color: #A13200;
+    color: $dark_brouwn;
 }
