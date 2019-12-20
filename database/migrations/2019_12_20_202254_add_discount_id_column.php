@@ -15,7 +15,7 @@ class AddDiscountIdColumn extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             $table->unsignedBigInteger('discount_id')->nullable()->after('category_id');
-            $table->foreign('discount_id')->references('id')->on('products');
+            $table->foreign('discount_id')->references('id')->on('products')->onDelete('set null');
         });
     }
 
@@ -27,7 +27,10 @@ class AddDiscountIdColumn extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('discount_id');
+            if(key_exists('discount_id',$table->getColumns())){
+                $table->dropForeign('discount_id');
+                $table->dropColumn('discount_id');
+            }
         });
     }
 }
