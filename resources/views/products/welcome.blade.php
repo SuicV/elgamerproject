@@ -56,21 +56,7 @@
                 </form>
             </div>
             <div class="col-12 col-sm-7 col-md-9">
-                <div id="products" class="row">
-                    @foreach($products as $product)
-                        <a href="{{route("produits.get",["id"=>$product->id])}}" class="px-1 col-12 col-md-4 my-3 product-container">
-                            <div class="product-container border h-100">
-                                <div class="img-product text-center">
-                                    <img class="img-fluid product-image" src="{{ asset("imgs/".$product->image) }}" alt="">
-                                </div>
-                                <div class="product-inf mt-2 mx-2">
-                                    <h5 class="product-title text-center">{{ Str::title($product->title) }}</h5>
-                                    <p class="product-descr">{{ Str::limit($product->description, 50, "...") }}</p>
-                                    <p class="product-price">Prix : <span class="proudct-price-number">{{ $product->price }} DH</span></p>
-                                </div>
-                            </div>
-                        </a>
-                    @endforeach
+                    @include('products/inc/display_products', ["products"=>$products])
                 </div>
                 <div class="row justify-content-center">
                     <div id="pagiantion">{{ $products->links() }}</div>

@@ -24,21 +24,7 @@
             <h3 id="latest-products-title" class="double-border">Nos Dernière Produits</h3>
         </div>
         <div class="row pt-3">
-        @foreach($latestProduct as $product)
-            <div class="col-12 col-md-4 my-3">
-                <div class="product-container border">
-                    <div class="img-product text-center">
-                        <img class="img-fluid product-image" src="{{ asset("imgs/".$product->image) }}" alt="">
-                    </div>
-                    <div class="product-inf mt-2 mx-2">
-                        <h5 class="product-title text-center">{{ Str::title($product->title) }}</h5>
-                        <p class="product-descr">{{ Str::limit($product->description, 50, "...") }}</p>
-                        <p class="product-price"><span class="proudct-price-number">{{ $product->price }}</span> <span class="product-price-currency">DH</span></p>
-                    </div>
-                </div>
-            </div>
-
-        @endforeach
+            @include("products/inc/display_products",["products"=>$products])
         </div>
     </section>
 @endsection
