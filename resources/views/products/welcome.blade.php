@@ -56,8 +56,7 @@
                 </form>
             </div>
             <div class="col-12 col-sm-7 col-md-9">
-                    @include('products/inc/display_products', ["products"=>$products])
-                </div>
+                @include('products/inc/display_products', ["products"=>$products])
                 <div class="row justify-content-center">
                     <div id="pagiantion">{{ $products->links() }}</div>
                 </div>
