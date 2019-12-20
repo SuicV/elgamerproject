@@ -1,4 +1,4 @@
-@extends("default",["title"=>$product->title."::El-Gamer","css"=>"produits/details"])
+@extends("default",["title"=>$product->title."::El-Gamer","css"=>"produits/details","active"=>"products"])
 
 @section("content")
     <section class="container py-5">

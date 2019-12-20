@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="/css/{{ $css }}.css">
   </head>
   <body>
-		@include("inc.header")
+    @php(isset($active) ? : $active = "")
+		@include("inc.header", ["active"=>$active])
 
     @yield('content')
 

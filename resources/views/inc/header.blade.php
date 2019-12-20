@@ -29,11 +29,11 @@
 			<div class="collapse navbar-collapse justify-content-between" id="collapsibleNavId">
 				<div></div>
 				<ul class="navbar-nav mt-2 mt-lg-0">
-					<li class="nav-item active">
+					<li class="nav-item @php if($active == 'home' ){echo 'active';} @endphp">
 						<a class="nav-link" href="{{ route('home') }}">Acceuil</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{ route('produits') }}">Produits</a>
+						<a class="nav-link @php if($active == 'products' ){echo 'active';} @endphp " href="{{ route('produits') }}">Produits</a>
 					</li>
 				</ul>
 				<div class="">
