@@ -13,7 +13,11 @@
                         <p><h5 class="d-inline">Categorie : </h5><span style="text-transform: lowercase; font-weight: 300; color: #A13200;">{{ $product->category->parentCategory->name }} ( {{ $product->category->name }} )</span></p>
                     </div>
                     <div class="price">
-                        <p><h5 class="d-inline">Prix : </h5><span class="number">{{$product->price}} DH</span></p>
+                    <p>
+                        <h5 class="d-inline">Prix : </h5>
+                        <span @if($product->discount) style="color:gray; text-decoration:line-through;" @endif class="number">{{$product->price}} DH</span>
+                        @if($product->discount) <span class="number"> {{$product->discount->price}} DH </span>@endif 
+                    </p>
                     </div>
                     <div class="add-to-bag">
                         <form id="add-chart-form" action="{{route('chart.store')}}" method="post">
@@ -63,7 +67,11 @@
                         </div>
                         <div class="product-m-l-title">
                             <h5>{{ $pr->title }}</h5>
-                            <p class="mb-0"><span>Prix :</span> <span>{{$pr->price}}DH</span></p>
+                            <p class="mb-0"><span>Prix :</span> <span @if($pr->discount) style="color:gray; text-decoration:line-through;" @endif>{{$pr->price}}DH</span>
+                                @if($pr->discount)
+                                    <span>{{$pr->discount->price}} DH</span>
+                                @endif
+                            </p>
                         </div>
                     </a>
                 @endforeach
