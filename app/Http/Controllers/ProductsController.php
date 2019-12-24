@@ -20,12 +20,13 @@ class ProductsController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index(Request $req){
-        $categories = Category::whereNull("parent_cat")->get();
-        $products = Product::orderBy("created_at","DESC")->paginate(9);
-        $prices = ["max"=>Product::max("price"),"min"=>Product::min("price")];
+        $products = $this->getProducts();
         if($req->ajax()){
-            return $products;
+            $html = view("products.inc.display_products",compact("products"))->render();
+            return response()->json(["count"=>$products->count(),"html"=>$html,"links"=>$products->links()->render()]);
         }
+        $categories = Category::whereNull("parent_cat")->get();
+        $prices = ["max"=>Product::max("price"),"min"=>Product::min("price")];
         return view("products.welcome",compact("categories","products","prices"));
     }
 
@@ -50,16 +51,19 @@ class ProductsController extends Controller
         if(!$validator->fails()){
 
             $wheres = [
-                ["price", "<=", $req->get("max-price")],
-                ["price", ">=", $req->get("min-price")],
+                ["products.price", "<=", $req->get("max-price")],
+                ["products.price", ">=", $req->get("min-price")],
             ];
             if(intval($req->get("cat")) > 0){
                 $wheres[] = ["category_id", "=",$req->get("cat")];
             }
-            $result = Product::select(["id", "title", "price", "description","image"])
-                ->where($wheres)
-                ->orderBy("updated_at","DESC");
-            return $result->paginate(9);
+            // retrieving data
+            $products = $this->getProducts($wheres);
+            $html = view("products.inc.display_products",compact("products"))->render();
+            return response()->json(["count"=>$products->count(),
+                "html"=>$html,
+                "links"=>$products->links()->render()
+            ]);
         }
     }
 
@@ -73,5 +77,14 @@ class ProductsController extends Controller
             return view("products.details",compact("product","migthLove"));
         }
         return redirect(route("produits"));
+    }
+
+    private function getProducts(Array $wheres = []){
+        return Product::select(["products.id", "title", "products.price", "description","image",
+        "discounts.price as discountprice"])
+            ->where($wheres)
+            ->orderBy("products.updated_at","DESC")
+            ->leftjoin("discounts","products.discount_id","=","discounts.id")
+            ->paginate(9);
     }
 }
