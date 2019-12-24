@@ -7,8 +7,8 @@
         </div>
     </section>
     <section class="container py-5">
-        <aside class="row">
-            <div class="col-12 col-sm-5 col-md-3">
+        <div class="row">
+            <aside class="col-12 col-sm-5 col-md-3">
                 <h5>Filtrer les resultats</h5>
                 <form id="product-filter" action="{{ route('produits.search') }}" method="post">
                     {{ csrf_field() }}
@@ -54,14 +54,14 @@
                         <button type="submit" class="btn btn-outline-primary w-100">Filtrer</button>
                     </div>
                 </form>
-            </div>
-            <div class="col-12 col-sm-7 col-md-9">
+            </aside>
+            <article class="col-12 col-sm-7 col-md-9">
                 @include('products/inc/display_products', ["products"=>$products])
                 <div class="row justify-content-center">
                     <div id="pagiantion">{{ $products->links() }}</div>
                 </div>
-            </div>
-        </aside>
+            </article>
+        </div>
     </section>
 @endsection
 
