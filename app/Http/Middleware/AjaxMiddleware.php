@@ -16,7 +16,7 @@ class AjaxMiddleware
     public function handle($request, Closure $next)
     {
         if(!$request->ajax()){
-            return response("",400);
+            return response("Bad Request",400);
         }
         return $next($request);
     }
