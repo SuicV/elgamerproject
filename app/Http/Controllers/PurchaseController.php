@@ -32,12 +32,9 @@ class PurchaseController extends Controller
             "rib"=>["required", "regex:/^(?>\d{5}\s?){2}\s?\d{11}\s?\d{2}$/"]
         ],$custom);
         if(!$validator->fails()){
-            // TODO : update user information if exist
-            $client = Client::where("email","=",$informations["email"])->first();
-            // create client if doesn't exist
-            if($client === null){
-                $client = Client::create($informations);
-            }
+            // update informations or create new client if doesn't exist
+            $client = Client::updateOrCreate(["email"=>$informations["email"]],$informations);
+
             $quantities = array_diff_assoc(session()->get("chart"), ["totalPrice"=>session()->get("chart.totalPrice")]);
             $order = Order::create(["client_id"=>$client->id,
                 "order_code"=> \Str::random(30),
