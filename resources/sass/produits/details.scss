@@ -44,3 +44,19 @@
     font-weight: 300;
     color: $dark_brouwn;
 }
+
+// styling comments
+#comments .comments-banner {
+    color:$dark_bleu;
+    font-family: "Press Start 2P", cursive;
+    text-align: center;
+}
+#comments .add-comment-title{
+    text-align: center;
+    font-weight: bold;
+    color:$dark_brouwn;
+}
+#comments form label {
+    font-weight: lighter;
+    color:$dark_bleu;
+}

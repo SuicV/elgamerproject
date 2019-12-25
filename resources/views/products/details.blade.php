@@ -15,7 +15,7 @@
                     <p>
                         <h5 class="d-inline">Prix : </h5>
                         <span @if($product->discount) style="color:gray; text-decoration:line-through;" @endif class="number">{{$product->price}} DH</span>
-                        @if($product->discount) <span class="number"> {{$product->discount->price}} DH </span>@endif 
+                        @if($product->discount) <span class="number"> {{$product->discount->price}} DH </span>@endif
                     </p>
                     </div>
                     <div class="add-to-bag">
@@ -76,6 +76,38 @@
                 @endforeach
         </div>
         @endif
+        <section>
+            <div id="comments">
+                <h4 class="comments-banner">Avis du clients :</h4>
+                <div class="row">
+                    <div class="col-md-4 col-sm-12 col-12 add-comment">
+                        <h5 class="add-comment-title">Ajouter votre avis</h5>
+                        <form action="{{route("comments.store")}}" method="post">
+                            @csrf
+                            <input type="hidden" value="{{ $product->id }}" name="p" >
+                            <div class="form-group">
+                                <label for="name">Nom complet :</label>
+                                <input class="form-control" type="text" name="name" id="name" placeholder="nom complet" />
+                            </div>
+                            <div class="form-group">
+                                <label for="email">email :</label>
+                                <input type="text" name="email" id="email" class="form-control" placeholder="email" />
+                            </div>
+                            <div class="form-group">
+                                <label for="comment">commentaire :</label>
+                                <textarea name="comment" id="comment" cols="30" rows="5" class="form-control">Commentaire</textarea>
+                            </div>
+                            <div class="submit">
+                                <button type="submit" class="btn btn-outline-primary w-100"><i class="fa fa-paper-plane"></i> Ajouter</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-8 col-sm-12 col-12">
+                    </div>
+                </div>
+            </div>
+
+        </section>
     </section>
     @include("products.inc.modals")
 @endsection
