@@ -28,9 +28,9 @@
                         <tr class="product-item">
                             <td><img style="max-height: 150px" src="/imgs/{{$product->image}}" class="img-fluid"/></td>
                             <td ><h4 style="min-width: 300px;">{{ $product->title }}</h4></td>
-                            <td><span>{{$product->price}} DH</span></td>
+                            <td><span>{{$product->getPrice()}} DH</span></td>
                             <td class="text-center" style="font-weight: 300; color: #A13200"><span>{{$chartQuantities[$product->id]}}</span></td>
-                            <td><p style="min-width: 80px;" class="m-0"><span class="product-total-price">{{$product->price*$chartQuantities[$product->id]}}</span> DH</p></td>
+                            <td><p style="min-width: 80px;" class="m-0"><span class="product-total-price">{{$product->getPrice()*$chartQuantities[$product->id]}}</span> DH</p></td>
                             <td>
                                 <form class="remove-product-form" action="{{ route('chart') }}" method="get">
                                     @csrf

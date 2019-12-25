@@ -35,7 +35,7 @@
                                 <span>{{ $prices["max"] }} DH</span>
                             </div>
                         </div>
-                        <input class="range w-100" type="range" value="{{ $prices['max'] }}"min="{{ $prices["min"] }}" max="{{$prices["max"]}}" name="max-price" id="max-price">
+                        <input class="range w-100" type="range" value="{{ $prices['max'] }}" min="{{ $prices["min"] }}" max="{{$prices["max"]}}" name="max-price" id="max-price">
                     </div>
                     <div class="form-group mb-0">
                         <label for="min-price">prix minimume</label>

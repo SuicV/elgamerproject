@@ -50,9 +50,9 @@
                         <tr>
                             <td><img class="img-fluid" style="height: 150px;" src="http://el-gamer.com/imgs/{{$product->image}}" /></td>
                             <td style="vertical-align: middle;">{{$product->title}}</td>
-                            <td style="vertical-align: middle;">{{$product->price}}</td>
+                            <td style="vertical-align: middle;">{{$product->getPrice()}}</td>
                             <td style="vertical-align: middle;">{{$quantities[$product->id]}}</td>
-                            <td style="vertical-align: middle;">{{$product->price * $quantities[$product->id]}}</td>
+                            <td style="vertical-align: middle;">{{$product->getPrice() * $quantities[$product->id]}}</td>
                         </tr>
                         @endforeach
                 </tbody>

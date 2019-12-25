@@ -32,6 +32,7 @@ class PurchaseController extends Controller
             "rib"=>["required", "regex:/^(?>\d{5}\s?){2}\s?\d{11}\s?\d{2}$/"]
         ],$custom);
         if(!$validator->fails()){
+            // TODO : update user information if exist
             $client = Client::where("email","=",$informations["email"])->first();
             // create client if doesn't exist
             if($client === null){
@@ -44,10 +45,10 @@ class PurchaseController extends Controller
                 "total_price"=>session()->get("chart.totalPrice",0)]);
 
             $commandeCode = $order->order_code ;
-            $products = Product::select(["title","price","id","image"])->whereIn("id",array_keys($quantities))->get();
+            $products = Product::select(["title","price","id","image","discount_id"])->whereIn("id",array_keys($quantities))->get();
             $quantities = session()->get("chart",[]);
             session()->remove("chart");
-            $pdf = PDF::loadView("pdf.test",compact("commandeCode","products","quantities", "client"));
+            $pdf = PDF::loadView("pdf.order",compact("commandeCode","products","quantities", "client"));
             return $pdf->download("commande.pdf");
         }
         // redirect request with errors and old inputs

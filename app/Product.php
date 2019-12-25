@@ -14,4 +14,16 @@ class Product extends Model
     public function discount(){
         return $this->belongsTo('App\Discount','discount_id');
     }
+
+    /**
+     * method return price of a product or discount price if has discount
+     * @param int $id id of product
+     * @return int
+     */
+    public function getPrice(){
+        if($this->discount){
+            return $this->discount->price;
+        }
+        return $this->price;
+    }
 }
