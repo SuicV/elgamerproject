@@ -42,11 +42,12 @@ class ProductsController extends Controller
         if(intval($req->get("cat")) > 0){
             $categoryVerify[] = "exists:categories,id";
         }
-        $validator = Validator::make($req->only(["max-price","min-price","cat","page"]),[
+        $validator = Validator::make($req->only(["max-price","min-price","cat","page","discount"]),[
             "max-price"=>["required","numeric"],
             "min-price"=>["required","numeric"],
             "page"=>["required","numeric"],
-            "cat"=>$categoryVerify
+            "cat"=>$categoryVerify,
+            "discount"=>["regex:/^discount$/"]
         ]);
         if(!$validator->fails()){
 
@@ -56,6 +57,9 @@ class ProductsController extends Controller
             ];
             if(intval($req->get("cat")) > 0){
                 $wheres[] = ["category_id", "=",$req->get("cat")];
+            }
+            if($req->get("discount", "") !== ""){
+                $wheres[] = ["products.discount_id","<>","NULL"];
             }
             // retrieving data
             $products = $this->getProducts($wheres);

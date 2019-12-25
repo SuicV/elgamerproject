@@ -50,6 +50,12 @@
                         <input class="range w-100" value="{{ $prices['min'] }}" type="range" min="{{ $prices["min"] }}" max="{{$prices["max"]}}" name="min-price" id="min-price">
                     </div>
                     <div id="price-range"></div>
+                    <div class="form-check">
+                      <label class="form-check-label" style="font-weight:bold;">
+                        <input type="checkbox" class="form-check-input" name="discount" id="discount" value="discount">
+                        en solde
+                      </label>
+                    </div>
                     <div class="mt-2">
                         <button type="submit" class="btn btn-outline-primary w-100">Filtrer</button>
                     </div>
