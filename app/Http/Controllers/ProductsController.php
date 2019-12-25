@@ -70,7 +70,10 @@ class ProductsController extends Controller
             ]);
         }
     }
-
+    /**
+     * @method return details of product by getting it with his id 
+     * @param mix $id id of product to display
+     */
     public function get($id){
         $product = Product::where("id", "=", $id)->first();
         if($product){
