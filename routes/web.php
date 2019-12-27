@@ -27,4 +27,4 @@ Route::post("/commander","PurchaseController@store")->name("purchase");
 Route::get('/contacter-nous', "ContactController@index")->name("contact-us");
 Route::post('/contacter-nous', "ContactController@store")->name("contact-us.store");
 // comments routes
-Route::post("/comment", "CommentsController@store")->name("comments.store");
+Route::put("/comment", "CommentsController@store")->name("comments.store");

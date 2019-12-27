@@ -17,7 +17,7 @@ class ProductsController extends Controller
 
     /**
      * Get element products page with all products in pagination
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\JsonResponse|\Illuminate\View\View
      */
     public function index(Request $req){
         $products = $this->getProducts();
@@ -34,7 +34,7 @@ class ProductsController extends Controller
     /**
      * Get filtered products
      * @param Request $req http request
-     * @return \Illuminate\Contracts\Routing\ResponseFactory|Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function search(Request $req){
         $categoryVerify = ["required","numeric"];
@@ -71,7 +71,7 @@ class ProductsController extends Controller
         }
     }
     /**
-     * @method return details of product by getting it with his id 
+     * @method return details of product by getting it with his id
      * @param mix $id id of product to display
      */
     public function get($id){

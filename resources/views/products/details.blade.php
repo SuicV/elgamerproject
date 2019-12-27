@@ -82,15 +82,16 @@
                 <div class="row">
                     <div class="col-md-4 col-sm-12 col-12 add-comment">
                         <h5 class="add-comment-title">Ajouter votre avis</h5>
-                        <form action="{{route("comments.store")}}" method="post">
+                        <form id="add-comment-form" action="{{route("comments.store")}}" method="post">
                             @csrf
+                            @method("PUT")
                             <input type="hidden" value="{{ $product->id }}" name="p" >
                             <div class="form-group">
                                 <label for="name">Nom complet :</label>
                                 <input class="form-control" type="text" name="name" id="name" placeholder="nom complet" />
                             </div>
                             <div class="form-group">
-                                <label for="email">email :</label>
+                                <label for="email">adresse email :</label>
                                 <input type="text" name="email" id="email" class="form-control" placeholder="email" />
                             </div>
                             <div class="form-group">
@@ -102,7 +103,8 @@
                             </div>
                         </form>
                     </div>
-                    <div class="col-md-8 col-sm-12 col-12">
+                    <div id="comments-section" class="col-md-8 col-sm-12 col-12">
+                        @include("products.inc.comments",["comments"=>$product->comments])
                     </div>
                 </div>
             </div>

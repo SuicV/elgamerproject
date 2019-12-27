@@ -14,7 +14,9 @@ class Product extends Model
     public function discount(){
         return $this->belongsTo('App\Discount','discount_id');
     }
-
+    public function comments(){
+        return $this->hasMany('App\Comment','product_id');
+    }
     /**
      * method return price of a product or discount price if has discount
      * @param int $id id of product
