@@ -1,6 +1,5 @@
 @import 'inc/variables';
 @import 'inc/header';
-@import 'inc/product_card';
 @import 'inc/footer';
 
 /* page content styling */
@@ -45,7 +44,7 @@ section[role="banner"] .btn
   bottom: -8px;
   height: 3px;
   background: #ED5B18;
-  
+
 }
 #latest-products-title
 {
@@ -73,6 +72,7 @@ section[role="banner"] .btn
 {
   color: #0E3E61;
 }
+@import 'inc/product_card';
 /*
 dark green : #10554d
 #A13200
