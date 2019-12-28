@@ -1,11 +1,12 @@
 @import'../inc/variables';
 @import '../inc/header';
 @import '../inc/product_card';
-@import '../inc/footer';
+@import 'inc/auto_completion';
 section[role="banner"] {
     background : url('/imgs/nvidia-1201077_1280.jpg') no-repeat center center fixed;
     background-size: cover;
 }
+
 /* styling filter section */
 #product-filter .form-group{
     font-weight: bold;
@@ -35,3 +36,4 @@ section[role="banner"] {
         border: 2px solid $dark_bleu;
     }
 }
+@import '../inc/footer';

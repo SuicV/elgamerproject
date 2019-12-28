@@ -1,0 +1,16 @@
+// styling search section
+#search-form {
+    position :relative;
+    & #auto-completion {
+        position:absolute;
+        margin: 0 10px;
+        background: white;
+        top:100%;
+        left: 0;
+        right: 0;
+        max-height: 300px;
+        overflow-y: scroll;
+        z-index: 1000;
+    }
+
+}

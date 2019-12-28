@@ -1,1 +1,286 @@
-body{font-family:Roboto,sans-serif}.inline-list{list-style:none}.inline-list li{display:inline}#h-social-links li i[class*=fa-facebook]{color:#0817e6}#h-social-links li i[class*=fa-twitter]{color:#24abe9}#h-social-links li i[class*=fa-instagram]{color:#e9bb24}.phone-number{color:#a13200;font-weight:700}.top-header-icons{padding-right:.2rem;font-size:20px;color:#0e3e61}#h-social-links li a :hover{-webkit-transform:translateY(-6px);transform:translateY(-6px);-webkit-transition:all .5s ease;transition:all .5s ease}.navbar-bg{background-color:#0e3e61}.navbar .navbar-brand{font-family:Press Start\ 2P,cursive;font-size:.9rem}.navbar .active{font-weight:700}.navbar-bg .navbar-text{color:#a13200}.navbar-toggler{border:none;cursor:pointer}.navbar-drop-button{display:block;width:20px;height:3px;background:#fff;margin-bottom:2px;border-radius:20%}.navbar-drop-button:last-child{margin-bottom:0}#products .product-container{color:#000;position:relative}#products .product-container:hover{text-decoration:none}#products .product-container:hover .product-container:after{content:"Voir Details";padding:.9rem .5rem;color:#fff;font-size:1.3rem;font-weight:700;text-align:center;position:absolute;display:block;width:95%;background:#0e3e61;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);z-index:500;-webkit-animation-name:fade-in;animation-name:fade-in;-webkit-animation-duration:.9s;animation-duration:.9s}#products .product-container:hover .product-container:before{position:absolute;background:rgba(161,50,0,.42);display:block;content:"";bottom:0;top:0;left:0;right:0;-webkit-animation:hidder-animation .9s;animation:hidder-animation .9s}@-webkit-keyframes hidder-animation{0%{opacity:0}to{opacity:1}}@keyframes hidder-animation{0%{opacity:0}to{opacity:1}}@-webkit-keyframes fade-in{0%{-webkit-transform:translate(-25%,-50%);transform:translate(-25%,-50%);opacity:0}to{opacity:1;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}}@keyframes fade-in{0%{-webkit-transform:translate(-25%,-50%);transform:translate(-25%,-50%);opacity:0}to{opacity:1;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}}.product-image{max-height:250px}.product-title{color:#0e3e61}.product-descr{margin-bottom:50px}.product-price{text-align:center;font-weight:700;color:#0e3e61;position:absolute;bottom:0;left:0;right:0}.proudct-price-number{color:#a13200;font-weight:300}.product-price-discount{text-decoration:line-through;color:grey}#main-footer{background-color:#a13200;color:#fff}#main-footer ul{list-style:none}#main-footer a{color:#fff}.footer-section-title{font-family:Press Start\ 2P,cursive;color:#ed5b18}section[role=banner]{background:url(/imgs/nvidia-1201077_1280.jpg) no-repeat 50% fixed;background-size:cover}#product-filter .form-group{font-weight:700}#price-range,#product-filter .clearfix{font-weight:lighter}#price-range{text-align:center}.range{appearance:none;-moz-appearance:none;-webkit-appearance:none;background:#0e3e61;height:10px;border-radius:10%}.range::-moz-range-thumb,.range::-webkit-slider-thumb{appearance:none;-moz-appearance:none;-webkit-appearance:none;height:15px;width:15px;border-radius:100%;background-color:#fff;border:2px solid #0e3e61}
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.inline-list {
+  list-style: none;
+}
+
+.inline-list li {
+  display: inline;
+}
+
+/*decorate social media icons*/
+
+#h-social-links li i[class*=fa-facebook] {
+  color: #0817e6;
+}
+
+#h-social-links li i[class*=fa-twitter] {
+  color: #24abe9;
+}
+
+#h-social-links li i[class*=fa-instagram] {
+  color: #e9bb24;
+}
+
+.phone-number {
+  color: #A13200;
+  font-weight: bold;
+}
+
+.top-header-icons {
+  padding-right: 0.2rem;
+  font-size: 20px;
+  color: #0E3E61;
+}
+
+#h-social-links li a :hover {
+  -webkit-transform: translateY(-6px);
+          transform: translateY(-6px);
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+}
+
+/* styling navbar*/
+
+.navbar-bg {
+  background-color: #0E3E61;
+}
+
+.navbar .navbar-brand {
+  font-family: "Press Start 2P", cursive;
+  font-size: 0.9rem;
+}
+
+.navbar .active {
+  font-weight: bold;
+}
+
+.navbar-bg .navbar-text {
+  color: #A13200;
+}
+
+.navbar-toggler {
+  border: none;
+  cursor: pointer;
+}
+
+.navbar-drop-button {
+  display: block;
+  width: 20px;
+  height: 3px;
+  background: white;
+  margin-bottom: 2px;
+  border-radius: 20%;
+}
+
+.navbar-drop-button:last-child {
+  margin-bottom: 0;
+}
+
+/* styling product card */
+
+#products .product-container {
+  color: black;
+  position: relative;
+}
+
+#products .product-container:hover {
+  text-decoration: none;
+}
+
+#products .product-container:hover .product-container:after {
+  content: "Voir Details";
+  padding: 0.9rem 0.5rem;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+  position: absolute;
+  display: block;
+  width: 95%;
+  background: #0E3E61;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 500;
+  -webkit-animation-name: fade-in;
+          animation-name: fade-in;
+  -webkit-animation-duration: 0.9s;
+          animation-duration: 0.9s;
+}
+
+#products .product-container:hover .product-container:before {
+  position: absolute;
+  background: rgba(161, 50, 0, 0.42);
+  display: block;
+  content: "";
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  -webkit-animation: hidder-animation 0.9s;
+          animation: hidder-animation 0.9s;
+}
+
+@-webkit-keyframes hidder-animation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hidder-animation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fade-in {
+  from {
+    -webkit-transform: translate(-25%, -50%);
+            transform: translate(-25%, -50%);
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    -webkit-transform: translate(-25%, -50%);
+            transform: translate(-25%, -50%);
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+}
+
+.product-image {
+  max-height: 250px;
+}
+
+.product-title {
+  color: #0E3E61;
+}
+
+.product-descr {
+  margin-bottom: 50px;
+}
+
+.product-price {
+  text-align: center;
+  font-weight: bold;
+  color: #0E3E61;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.proudct-price-number {
+  color: #A13200;
+  font-weight: 300;
+}
+
+.product-price-discount {
+  text-decoration: line-through;
+  color: gray;
+}
+
+#search-form {
+  position: relative;
+}
+
+#search-form #auto-completion {
+  position: absolute;
+  margin: 0 10px;
+  background: white;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 300px;
+  overflow-y: scroll;
+  z-index: 1000;
+}
+
+section[role=banner] {
+  background: url("/imgs/nvidia-1201077_1280.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* styling filter section */
+
+#product-filter .form-group {
+  font-weight: bold;
+}
+
+#product-filter .clearfix,
+#price-range {
+  font-weight: lighter;
+}
+
+#price-range {
+  text-align: center;
+}
+
+/* styling range input */
+
+.range {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: #0E3E61;
+  height: 10px;
+  border-radius: 10%;
+}
+
+.range::-webkit-slider-thumb,
+.range::-moz-range-thumb {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  height: 15px;
+  width: 15px;
+  border-radius: 100%;
+  background-color: white;
+  border: 2px solid #0E3E61;
+}
+
+/* styling footer */
+
+#main-footer {
+  background-color: #A13200;
+  color: white;
+}
+
+#main-footer ul {
+  list-style: none;
+}
+
+#main-footer a {
+  color: white;
+}
+
+.footer-section-title {
+  font-family: "Press Start 2P", cursive;
+  color: #ED5B18;
+}
+

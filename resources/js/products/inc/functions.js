@@ -59,3 +59,8 @@ export function addAjaxDefault(){
         })
     });
 }
+
+export function removeAutoComplition(){
+    $("#auto-completion").addClass("d-none");
+    $("#auto-completion").children().remove();
+}

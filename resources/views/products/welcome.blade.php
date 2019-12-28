@@ -4,6 +4,21 @@
         <div style="background: rgba(239,255,253,0.4); border-radius: 15%;" class="container align-self-center">
             <h1 id="top-banner-title" style="font-width: bold;" class="display-3 text-center">Nos Produits</h1>
             <p style="font-weight: 400;" class="lead text-center">Vous aller Trouver tous nos produit et vous pouvez les filtrer</p>
+            <hr class="my-4">
+            <p>
+                <form id="search-form" action="{{ route('produits.search') }}" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text bg-primary border-primary text-light"><i class="fa fa-search"></i></div>
+                            </div>
+                            <input type="text" name="s" id="search" class="form-control" autocomplete="off" placeholder="chercher un produits par nom">
+                        </div>
+                    </div>
+                <div id="auto-completion" class="container-fluid d-none"></div>
+                </form>
+            </p>
         </div>
     </section>
     <section class="container py-5">
@@ -57,7 +72,7 @@
                       </label>
                     </div>
                     <div class="mt-2">
-                        <button type="submit" class="btn btn-outline-primary w-100">Filtrer</button>
+                        <button type="submit" class="btn btn-outline-primary w-100"><i class="fa fa-search pr-2 pb-1"></i>Filtrer</button>
                     </div>
                 </form>
             </aside>

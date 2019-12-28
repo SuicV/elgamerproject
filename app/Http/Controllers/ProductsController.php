@@ -37,6 +37,14 @@ class ProductsController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function search(Request $req){
+        // search products by name
+        if($req->has("s")){
+            $products = Product::where([["title","like","%".$req->get("s","")."%"]])->limit(9)->get();
+            $html = view("products.inc.autoCompletion",compact("products"))->render();
+            return response(["html"=>$html,"status"=>"OK"],200);
+        }
+
+        // filtering products
         $categoryVerify = ["required","numeric"];
 
         if(intval($req->get("cat")) > 0){
@@ -71,7 +79,7 @@ class ProductsController extends Controller
         }
     }
     /**
-     * @method return details of product by getting it with his id
+     * method return details of product by getting it with his id
      * @param mix $id id of product to display
      */
     public function get($id){

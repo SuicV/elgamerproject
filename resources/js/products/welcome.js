@@ -32,4 +32,28 @@
             }
         }
     });
+
+    // auto completion de recherche
+    $("#search").on("keyup", function(e){
+        if(!$(this).val()){
+            funcs.removeAutoComplition();
+            return ;
+        }
+        if($("#auto-completion").hasClass("d-none")){
+            $("#auto-completion").removeClass("d-none");
+        }
+        $.ajax({
+            url : $("#search-form").attr("target"),
+            method : "post",
+            data : $("#search-form").serialize()
+        }).done(function(data){
+           $("#auto-completion").html(data.html);
+        }).fail(function(e){
+            console.log(e);
+        });
+    });
+
+    $(document).on("click",function(e){
+        funcs.removeAutoComplition();
+    })
 })($);
