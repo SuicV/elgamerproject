@@ -16,7 +16,7 @@
                             <input type="text" name="s" id="search" class="form-control" autocomplete="off" placeholder="chercher un produits par nom">
                         </div>
                     </div>
-                <div id="auto-completion" class="container-fluid d-none"></div>
+                <div id="auto-completion" class="container-fluid d-none m-0"></div>
                 </form>
             </p>
         </div>
