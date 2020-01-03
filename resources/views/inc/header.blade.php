@@ -3,9 +3,9 @@
 		<div class="row py-2">
 			<div class="col-12 col-sm-6">
 				<ul class="inline-list m-0 p-0" id="h-social-links">
-					<li><a href="#"><i class="top-header-icons fa fa-facebook-square"></i></a></li>
-					<li><a href="#"><i class="top-header-icons fa fa-twitter-square"></i></a></li>
-					<li><a href="#"><i class="top-header-icons fa fa-instagram"></i></a></li>
+					<li><a href="#"><i class="top-header-icons fab fa-facebook-square"></i></a></li>
+					<li><a href="#"><i class="top-header-icons fab fa-twitter-square"></i></a></li>
+					<li><a href="#"><i class="top-header-icons fab fa-instagram"></i></a></li>
 					<li><a href="#" class="text-dark"><i class="top-header-icons fa fa-map"></i></a></li>
 				</ul>
 			</div>
