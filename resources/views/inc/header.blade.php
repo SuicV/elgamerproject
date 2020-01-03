@@ -35,6 +35,9 @@
 					<li class="nav-item">
 						<a class="nav-link @php if($active == 'products' ){echo 'active';} @endphp " href="{{ route('produits') }}">Produits</a>
 					</li>
+                    <li class="nav-item">
+                        <a class="nav-link @php if($active == 'contact' ){echo 'active';} @endphp " href="{{ route('contact-us') }}">Contacter-nous</a>
+                    </li>
 				</ul>
 				<div class="">
                     <a class="nav-link" href="{{route('chart')}}"><span class="text-light"><i class="fa fa-shopping-basket" aria-hidden="true"></i> <span id="pannier-sum">{{session()->get("chart.totalPrice",0)}} DH</span></span></a>

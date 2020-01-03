@@ -6,7 +6,7 @@
           <h4 class="footer-section-title">Location</h4>
           <div class="mapouter" style="width:100%; position:relative; min-height:250px; max-height: 400px;">
             <div class="gmap_canvas" style="width:100%;">
-              <iframe style="position:absolute; width=100% !important;height:100%!important;" id="gmap_canvas" src="https://maps.google.com/maps?q=fst%20marrakech&ie=UTF8&iwloc=&output=embed" frameborder="0"
+              <iframe style="position:absolute; width:100% !important;height:100%!important;" id="gmap_canvas" src="https://maps.google.com/maps?q=fst%20marrakech&ie=UTF8&iwloc=&output=embed" frameborder="0"
                scrolling="yes" marginheight="0" marginwidth="0"></iframe>
             </div>
           </div>
