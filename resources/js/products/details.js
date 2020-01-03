@@ -2,8 +2,8 @@ $(document).ready(function(e){
     // display image product
     $("#product-image").on("click",function(){
         var img = $(this).clone();
-        var element = $(`<div id="img-zoomed" style="position: fixed; top: 0; right: 0; left: 0; bottom: 0; background: rgba(0,0,0,.5);text-align: center; overflow: scroll;">
-            <div id="close" style="position: fixed; right: 1.3rem; font-size: 1.5rem;cursor: pointer;"><i style="color: black;" class="fa fa-close"></i></div>
+        var element = $(`<div id="img-zoomed" style="position: fixed; top: 0; right: 0; left: 0; bottom: 0; background: rgba(0,0,0,.4);text-align: center; overflow: scroll;">
+            <div id="close" style="position: fixed; right: 1.3rem; font-size: 1.5rem;cursor: pointer;"><i style="color: black;" class="fas fa-times"></i></div>
             </div>
             `);
         img.css("maxHeight" , "");
@@ -42,13 +42,12 @@ $(document).ready(function(e){
             method : "POST",
             data : $(this).serialize()
         }).done(function(data){
-            console.log(data);
             $("#comments-section").html(data.html);
         }).fail(function(error){
             if(error.status === 400){
                 let errors = error.responseJSON.errors;
                 let fields = ["name","email","comment"];
-                fields.forEach((value)=>{
+                fields.forEach( value=>{
                     if(errors.hasOwnProperty(value)){
                         let input = $(`#add-comment-form input[name='${value}'], #add-comment-form textarea[name='${value}']`);
                         input.addClass("border-danger");
@@ -56,6 +55,25 @@ $(document).ready(function(e){
                     }
                 });
             }
+        });
+    });
+    // rating system
+    $('#rating .fa-star').on('click', function(e){
+        let stars = $('#rating .fa-star'), found = false ;
+        let clicked = $(this);
+        stars.each(function(index,element){
+            if(found){
+                $(this).removeClass("fas");
+                $(this).addClass("far")
+            }else {
+                $(this).removeClass("far");
+                $(this).addClass("fas");
+            }
+            if($(this).is(clicked)){
+                found = true ;
+                $("input[name='rating']").attr("value",index+1);
+            }
+            
         });
     });
 });

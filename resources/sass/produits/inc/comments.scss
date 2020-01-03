@@ -12,7 +12,16 @@
     font-weight: lighter;
     color:$dark_bleu;
 }
-
+#comments .fa-star{
+    color :darken( yellow, 10%);
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+@media all and (max-width:300px) {
+    #comments .fa-star {
+        font-size: 1.4rem;
+    }
+}
 .comment-owner {
     font-size: 1.2rem;
     color: $dark_bleu;

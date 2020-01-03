@@ -25,7 +25,7 @@ class AddRatingColumnToComments extends Migration
      */
     public function down()
     {
-        Schema::table('Comment', function (Blueprint $table) {
+        Schema::table('comments', function (Blueprint $table) {
             $table->dropColumn("rating");
         });
     }

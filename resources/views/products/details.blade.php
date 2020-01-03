@@ -94,6 +94,15 @@
                                 <label for="email">adresse email :</label>
                                 <input type="text" name="email" id="email" class="form-control" placeholder="email" />
                             </div>
+                            <div class="form-group" id="rating">
+                                <label for="#">rating :</label>
+                                <span class="pr-1"><i class="fas fa-star"></i></span>
+                                <span class="pr-1"><i class="fas fa-star"></i></span>
+                                <span class="pr-1"><i class="fas fa-star"></i></span>
+                                <span class="pr-1"><i class="fas fa-star"></i></span>
+                                <span><i class="far fas fa-star"></i></span>
+                                <input type="hidden" value="5" name="rating">
+                            </div>
                             <div class="form-group">
                                 <label for="comment">commentaire :</label>
                                 <textarea name="comment" id="comment" cols="30" rows="5" class="form-control">Commentaire</textarea>
