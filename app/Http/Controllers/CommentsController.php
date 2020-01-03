@@ -14,14 +14,15 @@ class CommentsController extends Controller
     }
 
     public function store(Request $req){
-        $validator = Validator::make($req->only("name","email","comment","p"),[
+        $validator = Validator::make($req->only("name","email","comment","p","rating"),[
             "name"=>["required","alpha_dash","max:255"],
             "email"=>["required", "email","max:255"],
             "comment"=>["required"],
+            "rating"=>["required","numeric","min:1","max:5"],
             "p"=>["required","exists:products,id"]
         ]);
         if(!$validator->fails()){
-            Comment::create(collect($req->only("name","email","comment"))
+            Comment::create(collect($req->only("name", "email", "comment", "rating"))
                     ->union(["product_id"=>$req->get("p")])->toArray()
             );
             return response(["status"=>"OK","html"=>view("products.inc.comments",[

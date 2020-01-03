@@ -14,8 +14,10 @@
 }
 #comments .fa-star{
     color :darken( yellow, 10%);
-    cursor: pointer;
     font-size: 1.2rem;
+}
+#comments form .fa-star {
+    cursor: pointer;
 }
 @media all and (max-width:300px) {
     #comments .fa-star {

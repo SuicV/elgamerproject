@@ -14,7 +14,7 @@ class AddRatingColumnToComments extends Migration
     public function up()
     {
         Schema::table('comments', function (Blueprint $table) {
-            $table->integer("rating");
+            $table->integer("rating")->after("comment")->default(1);
         });
     }
 

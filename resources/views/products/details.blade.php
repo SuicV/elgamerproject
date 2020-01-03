@@ -96,11 +96,13 @@
                             </div>
                             <div class="form-group" id="rating">
                                 <label for="#">rating :</label>
-                                <span class="pr-1"><i class="fas fa-star"></i></span>
-                                <span class="pr-1"><i class="fas fa-star"></i></span>
-                                <span class="pr-1"><i class="fas fa-star"></i></span>
-                                <span class="pr-1"><i class="fas fa-star"></i></span>
-                                <span><i class="far fas fa-star"></i></span>
+                                <div class="d-inline-block w-100 text-center">
+                                    <span class="pr-1"><i class="fas fa-star"></i></span>
+                                    <span class="pr-1"><i class="fas fa-star"></i></span>
+                                    <span class="pr-1"><i class="fas fa-star"></i></span>
+                                    <span class="pr-1"><i class="fas fa-star"></i></span>
+                                    <span><i class="far fas fa-star"></i></span>
+                                </div>
                                 <input type="hidden" value="5" name="rating">
                             </div>
                             <div class="form-group">
@@ -113,7 +115,7 @@
                         </form>
                     </div>
                     <div id="comments-section" class="col-md-8 col-sm-12 col-12">
-                        @include("products.inc.comments",["comments"=>$product->comments])
+                        @include("products.inc.comments",["comments"=>$product->comments->reverse()])
                     </div>
                 </div>
             </div>

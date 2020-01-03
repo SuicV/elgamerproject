@@ -46,7 +46,7 @@ $(document).ready(function(e){
         }).fail(function(error){
             if(error.status === 400){
                 let errors = error.responseJSON.errors;
-                let fields = ["name","email","comment"];
+                let fields = ["name","email","comment","rating"];
                 fields.forEach( value=>{
                     if(errors.hasOwnProperty(value)){
                         let input = $(`#add-comment-form input[name='${value}'], #add-comment-form textarea[name='${value}']`);
