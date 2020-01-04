@@ -17,7 +17,7 @@ class ProductsController extends Controller
 
     /**
      * Get element products page with all products in pagination
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\JsonResponse|\Illuminate\View\View
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\JsonResponse
      */
     public function index(Request $req){
         $products = $this->getProducts();
