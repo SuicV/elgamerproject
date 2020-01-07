@@ -38,6 +38,10 @@
                 <input value="{{ old('telephone') }}" type="text" class="form-control" id="telephone" name="phone" placeholder="0612345678">
             </div>
             <div class="form-group">
+                <label for="password">Mot de pass</label>
+                <input class="form-control" type="password" name="password" id="password" placeholder="*****" >
+            </div>
+            <div class="form-group">
                 <label for="address">Address</label>
                 <input value="{{old('address')}}" type="text" class="form-control" id="address" name="address" placeholder="Marrakech Boulivarde Abde El-karim El-khatabi FST">
             </div>
