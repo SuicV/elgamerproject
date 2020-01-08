@@ -25,3 +25,17 @@
     color: $dark_brouwn;
     font-weight: 300;
 }
+.product-item .product-title a{
+    color:$dark_bleu;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}

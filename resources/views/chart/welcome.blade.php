@@ -27,9 +27,18 @@
                     @foreach($chartProducts as $product)
                         <tr class="product-item">
                             <td><img style="max-height: 150px" src="/imgs/{{$product->image}}" class="img-fluid"/></td>
-                            <td ><h4 style="min-width: 300px;">{{ $product->title }}</h4></td>
-                            <td><span>{{$product->getPrice()}} DH</span></td>
-                            <td class="text-center" style="font-weight: 300; color: #A13200"><span>{{$chartQuantities[$product->id]}}</span></td>
+                            <td >
+                                <h4 class="product-title" style="min-width: 300px;">
+                                    <a href="{{route('produits.get',["id"=>$product->id])}}">{{ $product->title }}</a>
+                                </h4>
+                            </td>
+                            <td><span class="unit-price">{{$product->getPrice()." DH"}}</span></td>
+                            <td class="text-center" style="font-weight: 300; color: #A13200; min-width:170px;">
+                                <button class="btn btn-outline-warning controleProduct" style="font-weight:bold;">-</button>
+                                <input type="hidden" name="p" value="{{ $product->id }}">
+                                <input style="width:50px;" min="1" step="1" type="number" value="{{$chartQuantities[$product->id]}}" />
+                                <button class="btn btn-outline-success controleProduct" style="font-weight:bold;">+</button>
+                            </td>
                             <td><p style="min-width: 80px;" class="m-0"><span class="product-total-price">{{$product->getPrice()*$chartQuantities[$product->id]}}</span> DH</p></td>
                             <td>
                                 <form class="remove-product-form" action="{{ route('chart') }}" method="get">
