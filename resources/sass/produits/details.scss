@@ -3,9 +3,11 @@
 @import '../inc/footer';
 
 /* styling product information */
-#product-selected  h5 {
-    font-weight: bold;
-    color: $dark_bleu;
+#product-selected  {
+    & h5, .title {
+        font-weight: bold;
+        color: $dark_bleu;
+    }
 }
 #product-selected .image >img {
     cursor: pointer;
