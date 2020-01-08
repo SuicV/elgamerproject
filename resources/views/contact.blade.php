@@ -34,9 +34,9 @@
             <aside class="col-md-6">
                 <h4 class="text-center">Nos Contact</h4>
                 <ul>
-                    <li><i class="fa fa-phone pr-2"></i>Mobile : 06-1548-6448</li>
+                    <li><i class="fas fa-mobile pr-2"></i>Mobile : 06-1548-6448</li>
                     <li><i class="fa fa-phone pr-2"></i>Service de clients : 06-1548-6448</li>
-                    <li><i class="fa fa-adn pr-2"></i>Email : contact@elgamer.com</li>
+                    <li><i class="fas fa-envelope pr-2"></i>Email : contact@elgamer.com</li>
                 </ul>
                 @if(count($errors))
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">

@@ -11,16 +11,17 @@
 </head>
 <body>
     <header style="padding-left: 1.5cm;">
-        <h1 style="font-family: 'Press Start 2P', cursive; color: #0E3E61" >El-gamer</h1>
-        <address>
-            <h3 style="font-family: Roboto;">Marrakech</h3>
-            <p>Boulivard Abde El-Karim El-Khatabi</p>
+        <h1 style="font-family: 'Press Start 2P', cursive; color: #0E3E61; float:right; margin:0;padding:0;" >El-gamer</h1>
+        <address style="float:left; padding-bottom: 15px; margin:0;">
+            <h3 style="font-family: Roboto; margin:0; padding:0;">Marrakech</h3>
+            <p>Boulevard Abde El-Karim El-Khatabi</p>
             <p>FSTG</p>
         </address>
+        <div style="clear:both; dispaly:none;"></div>
     </header>
     <section>
         <aside>
-            <ul>
+            <ul style="padding-top:0;">
                 <li><span>Code De Commande :</span>{{$commandeCode}}</li>
                 <li><span>Nom de Client :</span> {{$client->fullName}}</li>
                 <li><span>Email :</span> {{$client->email}}</li>

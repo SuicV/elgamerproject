@@ -36,7 +36,7 @@
 						<a class="nav-link @php if($active == 'products' ){echo 'active';} @endphp " href="{{ route('produits') }}">Produits</a>
 					</li>
                     <li class="nav-item">
-                        <a class="nav-link @php if($active == 'contact' ){echo 'active';} @endphp " href="{{ route('contact-us') }}">Contacter-nous</a>
+                        <a class="nav-link @php if($active == 'contact' ){echo 'active';} @endphp " href="{{ route('contact-us') }}">Contactez-nous</a>
                     </li>
 				</ul>
 				<div class="">
