@@ -55,7 +55,7 @@ class ProductsController extends Controller
             "min-price"=>["required","numeric"],
             "page"=>["required","numeric"],
             "cat"=>$categoryVerify,
-            "discount"=>["regex:/^discount$/"]
+            "discount"=>["in:discount"]
         ]);
         if(!$validator->fails()){
 

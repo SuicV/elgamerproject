@@ -43,6 +43,7 @@ $(document).ready(function(e){
             data : $(this).serialize()
         }).done(function(data){
             $("#comments-section").html(data.html);
+            $("#statistics").html(data.rate);
             $("#success-comment-add").modal("show");
         }).fail(function(error){
             if(error.status === 400){
