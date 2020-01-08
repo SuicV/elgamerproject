@@ -1,17 +1,27 @@
 @extends("default", ["title"=>"Home::El-Gamer","css"=>"welcome", "active"=>"home"])
 @section('content')
     <section role="banner" class="jumbotron jumbotron-fluid d-flex">
-        <div class="container align-self-center">
+        <div class="filter"></div>
+        <div style="z-index: 1000;" class="container align-self-center">
             <h1 id="top-banner-title" class="display-3 text-center">El-Gamer<span>vos assure</span></h1>
             <div class="row">
-                <div class="text-center col-md-4 quality-element">
-                    <h4>Produit</h4>
+                <div class="text-center col-md-4 px-1 py-2 border-right quality-element">
+                    <div class="icon">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                    <p>Prouduits de bon qualité</p>
                 </div>
-                <div class="text-center col-md-4 quality-element">
-                    <h4>livrison</h4>
+                <div class="text-center col-md-4 px-1 py-2 border-right quality-element">
+                    <div class="icon">
+                        <i class="fas fa-parachute-box"></i>
+                    </div>
+                    <p>livraison avec durée resonable</p>
                 </div>
-                <div class="text-center col-md-4 quality-element">
-                    <h4>service</h4>
+                <div class="text-center col-md-4 px-1 py-2 quality-element">
+                    <div class="icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <p>service client disponible 7j/24h</p>
                 </div>
             </div>
             <p class="lead text-right mt-3">

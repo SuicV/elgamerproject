@@ -35,8 +35,9 @@
                                 <form class="remove-product-form" action="{{ route('chart') }}" method="get">
                                     @csrf
                                     @method("DELETE")
-                                    <button type="submit" class="remove-product-btn btn btn-outline-danger" data-product="{{$product->id}}"><i class="fas fa-times"></i></button></td>
+                                    <button type="submit" class="remove-product-btn btn btn-outline-danger" data-product="{{$product->id}}"><i class="fas fa-times"></i></button>
                                 </form>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>

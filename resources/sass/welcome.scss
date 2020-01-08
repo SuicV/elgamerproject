@@ -5,18 +5,24 @@
 /* page content styling */
 section[role="banner"]
 {
+  position: relative;
   min-height: 100vh;
-  background: url("/imgs/pc-4136383_1920.jpg") no-repeat center bottom #ED5B18;
+  background: url("/imgs/pc-4136383_1920.jpg") no-repeat center bottom fixed;
   background-size: cover;
   color: white;
+  & .filter {
+    position: absolute;
+    left: 0; right: 0;
+    top: 0; bottom: 0;
+    background-color:#00000054;
+    ;
+    z-index: 1;
+  }
 }
 section[role="banner"] .btn
 {
   background: #0E3E61;
   color: white;
-}
-.quality-element {
-  background: #00000054;
 }
 #top-banner-title {
   filter: blur(#0E3E61,0.5);
@@ -45,6 +51,18 @@ section[role="banner"] .btn
   height: 3px;
   background: #ED5B18;
 
+}
+.quality-element{
+  .icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    border-radius: 100%;
+    padding-top: 6px;
+    background-color: white;
+    color: $dark_bleu;
+  }
 }
 #latest-products-title
 {
