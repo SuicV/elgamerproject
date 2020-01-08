@@ -10,14 +10,17 @@ $(document).ready(function(e){
     $("#product-image").on("click",function(){
         var img = $(this).clone();
         var element = $(`<div id="img-zoomed" style="position: fixed; top: 0; right: 0; left: 0; bottom: 0; background: rgba(0,0,0,.4);text-align: center; overflow: scroll;">
-            <div id="close" style="position: fixed; right: 1.3rem; font-size: 1.5rem;cursor: pointer;"><i style="color: black;" class="fas fa-times"></i></div>
+                <div id="close" style="position: relative; height:1.5rem; left:0; right:0;font-size: 1.2rem;cursor: pointer;">
+                    <i style="color: white; position: absolute; right:15px;" class="fas fa-times"></i>
+                </div>
+                <div margin-top:1.5rem; class="image-container"></div>
             </div>
             `);
         img.css("maxHeight" , "");
         img.css("verticalAlign" , "center");
         img.removeClass("img-fluid");
-        element.append(img);
         $("body").append(element);
+        element.find(".image-container").html(img);
         $("body").css("overflow-y","hidden");
         $("#close>i").on("click", function(){
             $("body").css("overflow-y","scroll");
