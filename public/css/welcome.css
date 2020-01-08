@@ -137,6 +137,21 @@ section[role=banner] .btn {
   font-family: "Roboto", sans-serif;
 }
 
+.stat-row div {
+  color: #0E3E61;
+  font-size: 1.5rem;
+}
+
+.stat-row p {
+  color: #A13200;
+}
+
+.stat-row .stat-value {
+  color: #0E3E61;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
 /*
   styling latest products
 */
@@ -166,7 +181,7 @@ section[role=banner] .btn {
   color: #0E3E61;
 }
 
-#latest-products-title {
+.section-title {
   border-bottom: solid 3px #ED5B18;
   color: #0E3E61;
   font-weight: bold;

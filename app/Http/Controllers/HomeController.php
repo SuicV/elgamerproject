@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Order ;
+use App\Comment ;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,6 +15,11 @@ class HomeController extends Controller
             ->orderBy("products.updated_at","DESC")
             ->leftjoin("discounts","products.discount_id","=","discounts.id")
             ->limit(9)->get();
-        return view("welcome", compact("products"));
+        $statistics = [
+            "countProducts"=>Product::count(),
+            "sells"=>Order::count(),
+            "clientSatisfaction"=>Comment::avg("rating")
+        ];
+        return view("welcome", compact("products","statistics"));
     }
 }

@@ -34,6 +34,21 @@ section[role="banner"] .btn
   font-size: 21px;
   font-family: 'Roboto', sans-serif;
 }
+// styling statistics
+.stat-row {
+  & div {
+    color: $dark_bleu;
+    font-size: 1.5rem;
+  }
+  & p {
+    color: $dark_brouwn;
+  }
+  & .stat-value {
+    color: $dark_bleu;
+    font-weight: bold;
+    font-size: 1.6rem;
+  }
+}
 /*
   styling latest products
 */
@@ -64,7 +79,7 @@ section[role="banner"] .btn
     color: $dark_bleu;
   }
 }
-#latest-products-title
+.section-title
 {
   border-bottom: solid 3px #ED5B18;
   color: #0E3E61;
