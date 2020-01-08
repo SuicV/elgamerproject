@@ -94,11 +94,11 @@
                                 <input class="form-control" type="text" name="name" id="name" placeholder="nom complet" />
                             </div>
                             <div class="form-group">
-                                <label for="email">adresse email :</label>
+                                <label for="email">Adresse email :</label>
                                 <input type="text" name="email" id="email" class="form-control" placeholder="email" />
                             </div>
                             <div class="form-group" id="rating">
-                                <label for="#">rating :</label>
+                                <label for="#">Note :</label>
                                 <div class="d-inline-block w-100 text-center">
                                     <span class="pr-1"><i class="fas fa-star"></i></span>
                                     <span class="pr-1"><i class="fas fa-star"></i></span>
@@ -109,7 +109,7 @@
                                 <input type="hidden" value="5" name="rating">
                             </div>
                             <div class="form-group">
-                                <label for="comment">commentaire :</label>
+                                <label for="comment">Commentaire :</label>
                                 <textarea name="comment" id="comment" cols="30" rows="5" class="form-control">Commentaire</textarea>
                             </div>
                             <div class="submit">
@@ -118,7 +118,7 @@
                         </form>
                     </div>
                     <div id="comments-section" class="col-md-8 col-sm-12 col-12">
-                        @include("products.inc.comments",["comments"=>$product->comments->reverse()])
+                        
                     </div>
                 </div>
             </div>

@@ -18,3 +18,4 @@
         </div>
     </div>
 @endforeach
+<div class="links">{{$comments->links()}}</div>

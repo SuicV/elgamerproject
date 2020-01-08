@@ -71,3 +71,20 @@ export function removeAutoComplition(){
     $("#auto-completion").addClass("d-none");
     $("#auto-completion").children().remove();
 }
+
+export function getComments(product,page){
+    $.ajax({
+        method:"post",
+        url : "/comment/"+product,
+        data: {'page':page},
+    }).done(function(data){
+        $("#comments-section").html(data.html);
+        $("#comments-section .links a").on("click", function(e){
+            e.preventDefault();
+            getComments($("input[name='p']").attr("value"), parseInt(e.target.href.split("?page=")[1]));
+            animateScroll("html", $("#comments-section"))
+        })
+    }).fail(function(error){
+        alert("un erreur occure");
+    })
+}

@@ -19,7 +19,7 @@ Route::get('/produits/{id}', "ProductsController@get")->name("produits.get")->wh
 // chart routes
 Route::get('/panier', "ChartController@index")->name("chart");
 Route::post('/panier',"ChartController@store")->name("chart.store");
-Route::delete('/panier/{id}', "ChartController@destroy")->name("chart.destroy")->where(["id"=>"[0-9]+"]);
+Route::delete('/panier/{id}', "ChartController@destroy")->name("chart.destroy")->where(["id"=>"^[0-9]+$"]);
 // purchase routes
 Route::get("/commander","PurchaseController@index")->name("purchase");
 Route::post("/commander","PurchaseController@store")->name("purchase");
@@ -28,3 +28,4 @@ Route::get('/contacter-nous', "ContactController@index")->name("contact-us");
 Route::post('/contacter-nous', "ContactController@store")->name("contact-us.store");
 // comments routes
 Route::put("/comment", "CommentsController@store")->name("comments.store");
+Route::post("/comment/{id}", "CommentsController@get")->name("comments.get")->where(["id"=>"^[0-9]+$"]);

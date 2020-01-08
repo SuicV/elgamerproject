@@ -1,4 +1,11 @@
 $(document).ready(function(e){
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    var getComments = require("./inc/functions").getComments;
+    getComments($("input[name='p']").attr('value'),1);
     // display image product
     $("#product-image").on("click",function(){
         var img = $(this).clone();
@@ -42,9 +49,9 @@ $(document).ready(function(e){
             method : "POST",
             data : $(this).serialize()
         }).done(function(data){
-            $("#comments-section").html(data.html);
             $("#statistics").html(data.rate);
             $("#success-comment-add").modal("show");
+            getComments($("input[name='p']").attr('value'),1);
         }).fail(function(error){
             if(error.status === 400){
                 let errors = error.responseJSON.errors;
