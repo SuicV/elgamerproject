@@ -1,3 +1,8 @@
+function animateScroll(parent, to){
+    $(parent).animate({
+        scrollTop : $(to).offset().top-60
+    },1000);
+}
 /**
  * @function addPriceRange
  * @desc display selected prices
@@ -29,6 +34,7 @@ export function getProducts(url, page){
         }
         $("#products").html(data.html);
         $("#pagiantion").html(data.links);
+        animateScroll("html","#products");
         $("#pagiantion a").on("click", function(e){
             e.preventDefault();
             getProducts('http://el-gamer.com/produits', parseInt(e.target.href.split("?page=")[1]))
@@ -53,6 +59,7 @@ export function addAjaxDefault(){
         }).done(function(data){
             $("#products").html(data.html);
             $("#pagiantion").html(data.links);
+            animateScroll("html","#products");
             addAjaxDefault();
         }).fail(function(response){
             console.error("getting products is fails");
