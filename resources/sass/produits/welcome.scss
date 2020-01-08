@@ -5,6 +5,13 @@
 section[role="banner"] {
     background : url('/imgs/nvidia-1201077_1280.jpg') no-repeat center center fixed;
     background-size: cover;
+    position: relative;
+    & .filter {
+        background: rgba(239,255,253,0.4); 
+        position: absolute;
+        left: 0;right: 0;
+        top: 0;bottom: 0;
+    }
 }
 
 /* styling filter section */
