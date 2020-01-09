@@ -17,7 +17,7 @@ class ContactController extends Controller
             "subject",
             "message"]);
         $validation = Validator::make($data , [
-            "name"=>"required|min:4",
+            "name"=>"required|min:4|regex:/^(?>[a-z\.-]{1,30}\s?){2,4}$/i",
             "email"=>"required|email|max:255",
             "subject"=>"required|max:255",
             "message"=>"required|min:6"

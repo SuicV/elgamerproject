@@ -14,7 +14,7 @@ class storeClientRequest extends FormRequest
     public function rules()
     {
         return [
-            "fullName"=>["required", "regex:/^(?>[a-z-]{1,30}\s?){2,4}$/i"],
+            "fullName"=>["required", "regex:/^(?>[a-z\.-]{1,30}\s?){2,4}$/i"],
             "email"=>["required","email"],
             "phone"=>["required","regex:/^(0|\+212)[1-9]([-\.]?[0-9]{2}){4}$/"],
             "address"=>["required","regex:/^(?>[a-z0-9-]+\s?){1,6}$/i"],

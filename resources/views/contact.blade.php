@@ -3,7 +3,7 @@
     <section role="banner" class="jumbotron jumbotron-fluid d-flex">
         <div class="container align-self-center">
             <h1 id="top-banner-title" class="display-3 text-center">Contactez-Nous</h1>
-            <p class="lead mt-3">vous avez des question des problemes dans notre serervice ou des idée a partager dans le domain de gaiming, partager le avec nous</p>
+            <p class="lead mt-3">vous avez des question des problemes dans notre service ou des idées a partagé dans le domain de gaiming, partager le avec nous</p>
         </div>
     </section>
     <section class="container mb-4">

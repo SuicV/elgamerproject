@@ -13,6 +13,7 @@ class CommentsController extends Controller
     {
         $this->middleware("isAjax")->only("store","get");
     }
+    
     public function get($id, Request $req){
         $comments = Comment::where("product_id","=",$id)->orderBy("created_at","desc")->paginate(6);
         return [
@@ -20,6 +21,7 @@ class CommentsController extends Controller
             "html"=>view("products.inc.comments",compact("comments"))->render(),
         ];
     }
+
     public function store(Request $req){
         $validator = Validator::make($req->only("name","email","comment","p","rating"),[
             "name"=>["required","regex:/^(?>[a-z-]{1,30}\s?){2,4}$/i","max:255"],

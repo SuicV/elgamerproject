@@ -4,7 +4,7 @@
         <div class="filter"></div>
         <div style="z-index:1000;" class="container align-self-center">
             <h1 id="top-banner-title" style="font-width: bold;" class="display-3 text-center">Nos Produits</h1>
-            <p style="font-weight: 400;" class="lead text-center">Vous aller Trouver tous nos produit et vous pouvez les filtrer</p>
+            <p style="font-weight: 400;" class="lead text-center">Vous allez Trouver tous nos produit et vous pouvez les filtrer</p>
             <hr style="z-index: 1000;" class="my-4">
             <p>
                 <form id="search-form" action="{{ route('produits.search') }}" method="POST">
