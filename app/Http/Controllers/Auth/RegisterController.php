@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -38,6 +39,7 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->middleware("isAjax")->only("store");
     }
 
     /**
@@ -72,5 +74,14 @@ class RegisterController extends Controller
 
     public function get(){
         return view("auth.register");
+    }
+    
+    public function store(Request $req){
+        $validator = $this->validator($req->only("name","email","password","password_confirmation"));
+        if(!$validator->fail()){
+            return response(["status"=>"OK"],200);
+        }else {
+            return response($validator->errors(),400);
+        }
     }
 }

@@ -1,4 +1,27 @@
 @import '../inc/variables';
 @import '../inc/header';
+.double-border
+{
+    font-weight: bold;
+    border-bottom: 3px solid $light_brouwn;    
+    position: relative;
+    color: $dark_bleu;
+}
+.double-border::after
+{
+  position: absolute;
+  content: " ";
+  left: 0;
+  right: 50%;
+  bottom: -8px;
+  height: 3px;
+  background: #ED5B18;
 
+}
+#login-form {
+    & label {
+        font-weight: bold;
+        color:$dark_bleu;
+    }
+}
 @import '../inc/footer';

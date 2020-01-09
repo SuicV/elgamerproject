@@ -39,15 +39,22 @@
                         <a class="nav-link @if($active == 'contact' ){{'active'}} @endif " href="{{ route('contact-us') }}">Contactez-nous</a>
                     </li>
 				</ul>
-				<div class="">
+				<div>
+					<div class="d-inline dropdown">
+						<button class="btn text-light" type="button" id="user-dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						  <i class="fas fa-user-alt"></i>
+						</button>
+						<div class="dropdown-menu" aria-labelledby="user-dropdown-button">
+							@guest
+								<a class="dropdown-item" href="{{ route("register.get") }}" >crée un compte</a>
+								<a class="dropdown-item" href="{{ route("login.get") }}" >se connecter</a>
+							@endguest
+						</div>
+					</div>
 					@auth
 						
 					@endauth
-					@guest
-						<a href="{{ route("register.get") }}" >crée un compte</a>
-						<a href="{{ route("login.get") }}" >se connecter</a>
-					@endguest
-                    <a class="nav-link" href="{{route('chart')}}"><span class="text-light"><i class="fa fa-shopping-basket" aria-hidden="true"></i> <span id="pannier-sum">{{session()->get("chart.totalPrice",0)}} DH</span></span></a>
+                    <a id="chart-link" class="nav-link" href="{{route('chart')}}"><span class="text-light"><i class="fa fa-shopping-basket" aria-hidden="true"></i> <span id="pannier-sum">{{session()->get("chart.totalPrice",0)}} DH</span></span></a>
 				</div>
 			</div>
 		</div>
