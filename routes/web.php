@@ -30,7 +30,7 @@ Route::post('/contacter-nous', "ContactController@store")->name("contact-us.stor
 Route::put("/comment", "CommentsController@store")->name("comments.store");
 Route::post("/comment/{id}", "CommentsController@get")->name("comments.get")->where(["id"=>"^[0-9]+$"]);
 // register routes
-Route::get("/crée-compte", "Auth\RegisterController@get")->name("register.get");
-Route::post("/crée-compte", "Auth\RegisterController@store")->name("register.store");
+Route::get("/inscription", "Auth\RegisterController@get")->name("register.get");
+Route::post("/inscription", "Auth\RegisterController@store")->name("register.store");
 // login routes
 Route::get("/se-connecter", "Auth\LoginController@get")->name("login.get");
