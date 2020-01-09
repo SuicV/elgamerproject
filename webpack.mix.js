@@ -21,6 +21,6 @@ const mix = require('laravel-mix');
 //    .sass('resources/sass/produits/welcome.scss', 'public/css/produits')
 //    .sass('resources/sass/purchase/welcome.scss', 'public/css/purchase')
 //    .sass('resources/sass/chart/welcome.scss', 'public/css/chart');
-
+mix.js("resources/js/auth/register.js","public/js/auth");
 mix.sass("resources/sass/auth/login.scss","public/css/auth")
     .sass("resources/sass/auth/register.scss","public/css/auth");
