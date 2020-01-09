@@ -46,6 +46,7 @@
 						</button>
 						<div class="dropdown-menu" aria-labelledby="user-dropdown-button">
 							@auth
+								<a class="dropdown-item" href="{{ route('dashboard') }}">Mon compte</a>
 								<a class="dropdown-item" href="{{ route("logout") }}" >déconnecter</a>
 							@endauth
 							@guest
