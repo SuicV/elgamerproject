@@ -29,3 +29,7 @@ Route::post('/contacter-nous', "ContactController@store")->name("contact-us.stor
 // comments routes
 Route::put("/comment", "CommentsController@store")->name("comments.store");
 Route::post("/comment/{id}", "CommentsController@get")->name("comments.get")->where(["id"=>"^[0-9]+$"]);
+// register routes
+Route::get("/crée-compte", "Auth\RegisterController@get")->name("register.get");
+// login routes
+Route::get("/se-connecter", "Auth\LoginController@get")->name("login.get");

@@ -29,17 +29,24 @@
 			<div class="collapse navbar-collapse justify-content-between" id="collapsibleNavId">
 				<div></div>
 				<ul class="navbar-nav mt-2 mt-lg-0">
-					<li class="nav-item @php if($active == 'home' ){echo 'active';} @endphp">
+					<li class="nav-item @if($active == 'home' ){{'active'}} @endif">
 						<a class="nav-link" href="{{ route('home') }}">Acceuil</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link @php if($active == 'products' ){echo 'active';} @endphp " href="{{ route('produits') }}">Produits</a>
+						<a class="nav-link @if($active == 'products' ){{'active'}} @endif " href="{{ route('produits') }}">Produits</a>
 					</li>
                     <li class="nav-item">
-                        <a class="nav-link @php if($active == 'contact' ){echo 'active';} @endphp " href="{{ route('contact-us') }}">Contactez-nous</a>
+                        <a class="nav-link @if($active == 'contact' ){{'active'}} @endif " href="{{ route('contact-us') }}">Contactez-nous</a>
                     </li>
 				</ul>
 				<div class="">
+					@auth
+						
+					@endauth
+					@guest
+						<a href="{{ route("register.get") }}" >crée un compte</a>
+						<a href="{{ route("login.get") }}" >se connecter</a>
+					@endguest
                     <a class="nav-link" href="{{route('chart')}}"><span class="text-light"><i class="fa fa-shopping-basket" aria-hidden="true"></i> <span id="pannier-sum">{{session()->get("chart.totalPrice",0)}} DH</span></span></a>
 				</div>
 			</div>
