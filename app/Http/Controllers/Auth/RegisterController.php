@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -29,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -54,6 +55,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            "password_confirmation" =>["required"]
         ]);
     }
 
@@ -77,8 +79,11 @@ class RegisterController extends Controller
     }
     
     public function store(Request $req){
-        $validator = $this->validator($req->only("name","email","password","password_confirmation"));
-        if(!$validator->fail()){
+        $data = $req->only("name","email","password","password_confirmation");
+        $validator = $this->validator($data);
+        if(!$validator->fails()){
+            $userInstance = $this->create($data);
+            Auth::login($userInstance);
             return response(["status"=>"OK"],200);
         }else {
             return response($validator->errors(),400);

@@ -45,6 +45,9 @@
 						  <i class="fas fa-user-alt"></i>
 						</button>
 						<div class="dropdown-menu" aria-labelledby="user-dropdown-button">
+							@auth
+								<a class="dropdown-item" href="{{ route("logout") }}" >déconnecter</a>
+							@endauth
 							@guest
 								<a class="dropdown-item" href="{{ route("register.get") }}" >crée un compte</a>
 								<a class="dropdown-item" href="{{ route("login.get") }}" >se connecter</a>

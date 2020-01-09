@@ -9,7 +9,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-7">
                     <h3 class="text-center double-border">formulaire d'inscription</h3>
-                    <form id="login-form" action="{{ route("register.store") }}" method="POST">
+                    <form id="register-form" action="{{ route("register.store") }}" method="POST">
                         @csrf
                         <div class="form-group">
                             <label for="#name">Nom Complet</label>
@@ -24,7 +24,7 @@
                             <input type="password" id="password" name="password" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="cpassword">Confirmer le mot de pass</label>
+                            <label for="cpassword">Confirmation le mot de pass</label>
                             <input type="password" id="cpassword" name="password_confirmation" class="form-control">
                         </div>
                         <div class="form-group">
@@ -38,3 +38,6 @@
         </section>
     </div>
 @endsection
+@section("scripts")
+    <script src="{{mix('js/auth/register.js')}}" type="text/javascript"></script>
+    @endsection

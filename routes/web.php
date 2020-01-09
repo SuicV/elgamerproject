@@ -34,3 +34,5 @@ Route::get("/inscription", "Auth\RegisterController@get")->name("register.get");
 Route::post("/inscription", "Auth\RegisterController@store")->name("register.store");
 // login routes
 Route::get("/se-connecter", "Auth\LoginController@get")->name("login.get");
+// logout routes
+Route::get("/deconnecter", "Auth\LoginController@logout")->name("logout");
