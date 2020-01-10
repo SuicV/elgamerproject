@@ -34,5 +34,9 @@ Route::get("/inscription", "Auth\RegisterController@get")->name("register.get");
 Route::post("/inscription", "Auth\RegisterController@store")->name("register.store");
 // login routes
 Route::get("/se-connecter", "Auth\LoginController@get")->name("login.get");
+Route::post("/se-connecter", "Auth\LoginController@attempt")->name("login.attempt");
 // logout routes
 Route::get("/deconnecter", "Auth\LoginController@logout")->name("logout");
+// user account
+Route::get("/compte", "User\UserController@get")->name("dashboard");
+Route::post("/compte", "User\UserController@store")->name("dashboard.store");
