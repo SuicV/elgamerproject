@@ -1,4 +1,11 @@
 @import '../inc/variables';
 @import 'inc/header.scss';
-
+#form-image label[for="image"]
+{
+    display: block;
+    text-align: center;
+    & > img {
+        width: 100%;   
+    }
+}
 @import '../inc/footer';

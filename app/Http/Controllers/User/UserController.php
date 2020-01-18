@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator ;
 use Illuminate\Support\Facades\Hash ;
 use Illuminate\Support\Facades\Storage ;
 use \Str ;
+use \Image ;
 class UserController extends Controller {
 
     public function __construct(){
@@ -96,8 +97,10 @@ class UserController extends Controller {
             if(($deleteFile = Auth::user()->image)!= null){
                 Storage::delete("imgs/users/".$deleteFile);
             }
-            
-            $file->storeAs("imgs/users", $fileName);
+            $image = Image::make($file->path());
+            $image->resize(600, 600, function ($constraint) {
+
+            })->save('imgs/users/'.$fileName);
             Auth::user()->update(["image"=>$fileName]);
             
             return response(["status"=>"ok","filename"=>$fileName],200);
